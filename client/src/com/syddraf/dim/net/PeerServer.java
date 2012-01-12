@@ -1,10 +1,11 @@
-package com.syddraf.dim;
+package com.syddraf.dim.net;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 import com.google.gson.Gson;
+import com.syddraf.dim.PreferenceManager;
 import com.syddraf.dim.model.DIMMessage;
 
 public class PeerServer extends Thread {

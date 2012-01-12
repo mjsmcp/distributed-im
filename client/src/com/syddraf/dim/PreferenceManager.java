@@ -1,13 +1,43 @@
 package com.syddraf.dim;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+
+import com.google.gson.Gson;
 
 public class PreferenceManager {
-
-	Map<String, String> map = new HashMap<String, String>();
+	String path = System.getProperty("user.home") + System.getProperty("file.separator") + "dim.conf";
+	private class DataStore {
+		Map<String, String> map = new HashMap<String, String>();
+	}
+	
+	private DataStore data = null;
 	private PreferenceManager() {
-		
+		try {
+			new File(path).mkdirs();
+			FileInputStream fis = new FileInputStream(path);
+			String s = "";
+			int i = 0;
+			while((i = fis.read()) != -1) {
+				s += (char)i;
+			}
+			
+			this.data = new Gson().fromJson(s, DataStore.class);
+			fis.close();
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	private static PreferenceManager instance = null;
 	public static PreferenceManager getInstance() {
@@ -15,8 +45,21 @@ public class PreferenceManager {
 			instance = new PreferenceManager();
 		return instance;
 	}
+	private void commit() {
+		try {
+			FileOutputStream fos = new FileOutputStream(path);
+			fos.write(new Gson().toJson(this.data).getBytes());
+			fos.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public int get(String key, int defaultValue) {
-		String value = map.get(key);
+		String value = data.map.get(key);
 		try {
 			return Integer.parseInt(value);
 		} catch(NumberFormatException e) {
@@ -25,9 +68,19 @@ public class PreferenceManager {
 	}
 	
 	public String get(String key, String defaultValue) {
-		String value = map.get(key);
+		String value = data.map.get(key);
 		if(value == null)
 			return defaultValue;
 		return value;
+	}
+	
+	public void put(String key, String value) {
+		this.data.map.put(key, value);
+		this.commit();
+	}
+	
+	public void put(String key, int value) {
+		this.data.map.put(key, Integer.toString(value));
+		this.commit();
 	}
 }

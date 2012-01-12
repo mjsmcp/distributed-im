@@ -1,4 +1,4 @@
-package com.syddraf.dim;
+package com.syddraf.dim.net;
 
 import java.util.HashMap;
 
