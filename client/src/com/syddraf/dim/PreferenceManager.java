@@ -7,29 +7,36 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 import com.google.gson.Gson;
 
 public class PreferenceManager {
-	String path = System.getProperty("user.home") + System.getProperty("file.separator") + "dim.conf";
+	
 	private class DataStore {
 		Map<String, String> map = new HashMap<String, String>();
 	}
 	
 	private DataStore data = null;
-	private PreferenceManager() {
+	private String path = "";
+	
+	
+	private PreferenceManager(String path) {
 		try {
-			new File(path).mkdirs();
-			FileInputStream fis = new FileInputStream(path);
-			String s = "";
-			int i = 0;
-			while((i = fis.read()) != -1) {
-				s += (char)i;
+			this.path = path;
+			new File(new File(path).getParent()).mkdirs();
+			try {
+				FileInputStream fis = new FileInputStream(path);
+				String s = "";
+				int i = 0;
+				while((i = fis.read()) != -1) {
+					s += (char)i;
+				}
+				
+				this.data = new Gson().fromJson(s, DataStore.class);
+				fis.close();
+			} catch(FileNotFoundException e) {
+				this.data = new DataStore();
 			}
-			
-			this.data = new Gson().fromJson(s, DataStore.class);
-			fis.close();
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -39,12 +46,20 @@ public class PreferenceManager {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
 	private static PreferenceManager instance = null;
+	public static void init(String path) {
+		instance = new PreferenceManager(path);
+	}
 	public static PreferenceManager getInstance() {
-		if(instance == null)
-			instance = new PreferenceManager();
 		return instance;
 	}
+	
+	
+	
+	
 	private void commit() {
 		try {
 			FileOutputStream fos = new FileOutputStream(path);
@@ -58,6 +73,10 @@ public class PreferenceManager {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	
 	public int get(String key, int defaultValue) {
 		String value = data.map.get(key);
 		try {

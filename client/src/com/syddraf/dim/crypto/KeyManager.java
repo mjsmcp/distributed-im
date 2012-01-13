@@ -26,6 +26,7 @@ public class KeyManager {
 	private PrivateKey privateKey = null;
 	
 	private static KeyManager instance = null;
+	public static void init() { KeyManager.getInstance(); }
 	private static KeyManager getInstance() {
 		if(instance == null)
 			instance = new KeyManager();
@@ -33,11 +34,13 @@ public class KeyManager {
 	}
 	private KeyManager() {
 		try {
+		// Load keys from the preference file
 		String pubkeyModulus = PreferenceManager.getInstance().get("PRIVATE_KEY_MODULUS", "");
 		String pubkeyExponent = PreferenceManager.getInstance().get("PRIVATE_KEY_EXPONENT", "");
 		String privkeyModulus = PreferenceManager.getInstance().get("PUBLIC_KEY_MODULUS", "");
 		String privkeyExponent = PreferenceManager.getInstance().get("PUBLIC_KEY_EXPONENT", "");
 		
+		// If any of the key components is null, we need to generate a new pair
 		if(pubkeyModulus.equals("") || pubkeyExponent.equals("") || privkeyModulus.equals("") || privkeyExponent.equals("")) {
 			KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
 			generator.initialize(4096);
@@ -45,12 +48,15 @@ public class KeyManager {
 			KeyFactory fact = KeyFactory.getInstance("RSA");
 			RSAPublicKeySpec pub = fact.getKeySpec(pair.getPublic(), RSAPublicKeySpec.class);
 			RSAPrivateKeySpec priv = fact.getKeySpec(pair.getPrivate(), RSAPrivateKeySpec.class);
+			
+			// Set the new pair
 			PreferenceManager.getInstance().put("PRIVATE_KEY_MODULUS", priv.getModulus().toString());
 			PreferenceManager.getInstance().put("PRIVATE_KEY_EXPONENT", priv.getPrivateExponent().toString());
 			PreferenceManager.getInstance().put("PUBLIC_KEY_MODULUS", pub.getModulus().toString());
 			PreferenceManager.getInstance().put("PUBLIC_KEY_EXPONENT", pub.getPublicExponent().toString());
 		}
 
+		// Generate the key objects from the components
 		this.publicKey = KeyFactory.getInstance("RSA").generatePublic(
 				new RSAPublicKeySpec(
 						new BigInteger(PreferenceManager.getInstance().get("PUBLIC_KEY_MODULUS", "0")),
@@ -65,6 +71,7 @@ public class KeyManager {
 					)
 				);
 			
+		
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -132,6 +139,9 @@ public class KeyManager {
 		}
 		
 		return "";
+	}
+	public static KeyPair getKeyPair() {
+		return new KeyPair(getInstance().publicKey, getInstance().privateKey);
 	}
 	
 	
