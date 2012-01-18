@@ -30,6 +30,8 @@ public class Main {
 	public static void runAsSeed(String preferencePath) {
 		PreferenceManager.init(preferencePath);
 		KeyManager.init();
+		
+		
 		Peer p = new Peer(Number160.createHash(1));
 		try {
 			p.listen(4040, 4040, InetAddress.getByName("192.168.0.2"));
