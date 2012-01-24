@@ -5,6 +5,7 @@ package com.syddraf.dim;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 
 import java.security.NoSuchAlgorithmException;
 import net.tomp2p.futures.FutureBootstrap;
@@ -14,6 +15,7 @@ import net.tomp2p.peers.Number160;
 import net.tomp2p.storage.Data;
 
 import com.syddraf.dim.crypto.KeyManager;
+import com.syddraf.jdht.JDHT;
 import com.syddraf.server.Server;
 
 public class Main {
@@ -31,44 +33,27 @@ public class Main {
 		PreferenceManager.init(preferencePath);
 		KeyManager.init();
 		
-		
-		Peer p = new Peer(Number160.createHash(1));
 		try {
-			p.listen(4040, 4040, InetAddress.getByName("192.168.0.2"));
-			System.out.println("Listening");
-			FutureDHT d = p.put(new Number160(1), new Data("Hello"));
-			d.awaitUninterruptibly();
-			System.out.println(d.getData().get(new Number160(1)).toString());
+			JDHT jdht = new JDHT(4000);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Listening2");
 		
 	}
 	
 	public static void runAsPeer(String preferencePath) {
 		PreferenceManager.init(preferencePath);
 		KeyManager.init();
-		Peer peer = new Peer(KeyManager.getKeyPair());
 		try {
-			peer.listen(4041, 4041);
-			FutureBootstrap fb = peer.bootstrap(new InetSocketAddress("192.168.0.2", 4040));
-			fb.awaitUninterruptibly();
-			System.out.println("complete");
-			Thread.sleep(3000);
-			FutureDHT d = peer.get(new Number160(1));
-			d.awaitUninterruptibly();
-			Object o = d.getData().get(new Number160(1));
-			if(o != null)
-				System.out.println(o.toString());
+			JDHT jdht = new JDHT(InetAddress.getByName("192.168.0.64"), 4000);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
-
+		
 	}
 	/**
 	 * @param args
