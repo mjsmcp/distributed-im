@@ -9,6 +9,7 @@ import java.util.Set;
 
 import net.tomp2p.connection.Bindings;
 import net.tomp2p.connection.ChannelCreator;
+import net.tomp2p.futures.FutureBootstrap;
 import net.tomp2p.futures.FutureDHT;
 import net.tomp2p.futures.FutureDiscover;
 import net.tomp2p.futures.FutureResponse;
@@ -30,9 +31,11 @@ public class JDHT{
 		try {
 			Random r = new Random(42L);
 			peer = new Peer(new Number160(r));
+			peer.getP2PConfiguration().setBehindFirewall(true);
 			Bindings b = new Bindings();
 			b.addInterface("eth0");
 			peer.listen(port, port, b);
+			
 			for (;;) 
 			{
 				for (PeerAddress pa : peer.getPeerBean().getPeerMap().getAll()) 
@@ -56,26 +59,29 @@ public class JDHT{
 				}
 				Thread.sleep(1500);
 			}
+			
 		} finally 
 		{
 			peer.shutdown();
 		}
 	}
 	
+	
+	
+	/*
+	 * Start as a peer
+	 */
 	public JDHT(InetAddress addr, int port) throws Exception {
 		Random r = new Random(43L);
 		this.peer = new Peer(new Number160(r));
-		peer.getP2PConfiguration().setBehindFirewall(true);
 		peer.listen(port, port);
 		PeerAddress pa = new PeerAddress(Number160.ZERO, addr, port, port);
-		FutureDiscover fd = peer.discover(pa);
-		fd.awaitUninterruptibly();
-		if(fd.isSuccess()) {
-			System.out.println("found that my outside address is " + fd.getPeerAddress());
-		} else {
-			System.out.println("failed " + fd.getFailedReason());
+		FutureBootstrap fb = peer.bootstrap(pa);
+		fb.awaitUninterruptibly();
+		if(fb.isFailed()) {
+			System.out.println("FAIL: " + fb.getFailedReason());
+			
 		}
-		
 	}
 	
 	@Override
