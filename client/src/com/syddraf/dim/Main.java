@@ -17,7 +17,7 @@ import net.tomp2p.storage.Data;
 import com.syddraf.dim.crypto.KeyManager;
 import com.syddraf.jdht.JDHT;
 import com.syddraf.server.Server;
-
+import com.syddraf.dim.gui.*;
 public class Main {
 
 	public static void terminate() {
@@ -60,6 +60,7 @@ public class Main {
 	 * @throws NoSuchAlgorithmException 
 	 */
 	public static void main(String[] args) throws NoSuchAlgorithmException {
+            /*
 		if(args.length != 1 && args.length != 2) terminate();
 		String path = System.getProperty("user.home") + System.getProperty("file.separator") + "dim.conf";
 		if(args.length == 2) {
@@ -72,6 +73,9 @@ public class Main {
 			runAsPeer(path);
 		else 
 			Server.main(path);
+                     
+                        */
+            new MainWindow().show();;
 	}
 
 
