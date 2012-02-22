@@ -15,6 +15,8 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+        this.jTextPane1.setEditable(false);
+        this.jList1.setSelectedIndex(0);
     }
 
     /**
@@ -33,23 +35,64 @@ public class MainWindow extends javax.swing.JFrame {
         jTextPane1 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("DIM Messenger");
 
         ContactListModel model = new ContactListModel();
         jList1.setCellRenderer(new ContactRenderer());
+        jList1.addListSelectionListener(new ContactListSelectionListener());
         jList1.setModel(model
         );
         jList1.setFixedCellHeight(25);
         jScrollPane1.setViewportView(jList1);
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+        });
 
         jScrollPane2.setViewportView(jTextPane1);
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu4.setText("Network");
+
+        jMenuItem6.setText("Change Network...");
+        jMenuItem6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem6MouseClicked(evt);
+            }
+        });
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem6);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu2.setText("Preferences");
+
+        jMenuItem2.setText("Notifications");
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem5.setText("Import/Export Settings...");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem5);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -77,6 +120,42 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        if(evt.getKeyChar() == '\n') {
+            System.out.println("Sent");
+            /*ContactListModel model = (ContactListModel)jList1.getModel();
+            model.addElement(new DIMContact(jTextField1.getText(), 0));
+            
+            getContentPane().invalidate();
+            getContentPane().validate();
+            jList1.repaint();*/
+            
+            DIMContact contact = (DIMContact)jList1.getSelectedValue();
+            contact.postMessage("Me", jTextField1.getText());
+            jTextField1.setText("");
+            this.jTextPane1.setText(contact.getHistory());
+        }
+    }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jMenuItem6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem6MouseClicked
+        new ChangeNetworkWindow().setVisible(true);
+    }//GEN-LAST:event_jMenuItem6MouseClicked
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        new ChangeNetworkWindow().setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        new ImportExportSettingsWindow().setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    public javax.swing.JList getContactList() {
+        return this.jList1;
+    }
+    
+    public javax.swing.JTextPane getHistoryFrame() {
+        return this.jTextPane1;
+    }
     /**
      * @param args the command line arguments
      */
@@ -122,7 +201,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;

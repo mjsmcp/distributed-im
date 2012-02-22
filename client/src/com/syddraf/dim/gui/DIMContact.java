@@ -12,12 +12,20 @@ public class DIMContact {
     private String contactName = "<None>";
     private int status = 0;
     private String history = "";
+    private boolean pinned = false;
     
     public DIMContact(String name, int status) {
         this.contactName = name;
         this.status = status;
     }
     
+    public void pin() {
+        this.pinned = true;
+    }
+    
+    public void unpin() {
+        this.pinned = false;
+    }
     public String getName() { return contactName; }
     public int getStatus() { return status; }
     

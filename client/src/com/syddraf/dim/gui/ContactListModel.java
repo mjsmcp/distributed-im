@@ -9,8 +9,8 @@ import javax.swing.event.*;
  *
  * @author syddraf
  */
-public class ContactListModel implements ListModel {
-    
+public class ContactListModel extends DefaultListModel implements ListModel {
+    ListDataListener ll = null;
     @Override
     public int getSize() {
         return ContactManager.getInstance().size();
@@ -21,6 +21,12 @@ public class ContactListModel implements ListModel {
         return ContactManager.getInstance().get(i);
     }
 
+    @Override
+    public void addElement(Object o) {
+        super.addElement(o);
+        ContactManager.getInstance().add((DIMContact)o);
+    }
+    
     @Override
     public void addListDataListener(ListDataListener ll) {
        
