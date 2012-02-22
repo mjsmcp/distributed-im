@@ -9,11 +9,24 @@ import java.util.*;
  * @author syddraf
  */
 public class ContactManager {
+    
+    private ArrayList<DIMContact> onlinePinned = new ArrayList<DIMContact>();
+    private ArrayList<DIMContact> onlineUnpinned = new ArrayList<DIMContact>();
+    private ArrayList<DIMContact> offline = new ArrayList<DIMContact>();
+    
+    private ArrayList<DIMContact> generatedContacts = new ArrayList<DIMContact>();
+    
     private ArrayList<DIMContact> contacts = new ArrayList<DIMContact>();
     
     private ContactManager() {
-    contacts.add(new DIMContact("Yi-Chin", 1));
-    contacts.add(new DIMContact("Dr. Adams", 0));
+    this.add("Emily", 0, true);
+    this.add("Brandon Conway", 1, false);
+    this.add("Yi-Chin Sun", 1, false);
+    this.add("Keiko Nakajima", 1, true);
+    this.add("Julie Adams", 1, true);
+    this.add("Larry Hamm", 1, true);
+    this.add("Lauren Arpin", 0, false);
+
     }
     
     private static ContactManager instance = null;
@@ -23,19 +36,44 @@ public class ContactManager {
         return instance;
     }
     
-    public void add(String name, int status) {
-        contacts.add(new DIMContact(name, status));
+    
+    public void add(String name, int status, boolean pinned) {
+        DIMContact contact = new DIMContact(name, status, pinned);
+        if(contact.getStatus() == 1 && contact.isPinned())
+            this.onlinePinned.add(contact);
+        else if(contact.getStatus() == 1 && !contact.isPinned())
+            this.onlineUnpinned.add(contact);
+        else
+            this.offline.add(contact);
+        
+        this.invalidateList();
         
     }
-    public void add(DIMContact o) {
-        contacts.add(o);
-        System.out.println("Contact " + o.getName() + " added");
+    
+    private void invalidateList() {
+        this.generatedContacts.clear();
+        this.generatedContacts.addAll(this.onlinePinned);
+        this.generatedContacts.addAll(this.onlineUnpinned);
+        
+        this.generatedContacts.addAll(this.offline);
+        
+    
+    }
+    public void add(DIMContact contact) {
+        if(contact.getStatus() == 1 && contact.isPinned())
+            this.onlinePinned.add(contact);
+        else if(contact.getStatus() == 1 && !contact.isPinned())
+            this.onlineUnpinned.add(contact);
+        else
+            this.offline.add(contact);
+        
+        this.invalidateList();
     }
     public int size() {
-        return contacts.size();
+        return this.generatedContacts.size();
     }
     
     public Object get(int i) {
-        return this.contacts.get(i);
+        return this.generatedContacts.get(i);
     }
 }

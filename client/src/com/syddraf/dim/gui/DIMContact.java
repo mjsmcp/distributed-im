@@ -14,11 +14,15 @@ public class DIMContact {
     private String history = "";
     private boolean pinned = false;
     
-    public DIMContact(String name, int status) {
+    public DIMContact(String name, int status, boolean pinned) {
         this.contactName = name;
         this.status = status;
+        this.pinned = pinned;
     }
     
+    public boolean isPinned() {
+        return this.pinned;
+    }
     public void pin() {
         this.pinned = true;
     }

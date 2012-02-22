@@ -24,11 +24,11 @@ public class ContactRenderer extends DefaultListCellRenderer {
             String name = contact.getName();
             int status = contact.getStatus();
             switch(status) {
-                case 0:
+                case 1:
                     label.setIcon(new ImageIcon("img/online.png"));
                     
                     break;
-                case 1:
+                case 0:
                     label.setIcon(new ImageIcon("img/offline.png"));
                     break;
             }
