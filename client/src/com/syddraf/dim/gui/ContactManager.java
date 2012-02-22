@@ -16,7 +16,7 @@ public class ContactManager {
     
     private ArrayList<DIMContact> generatedContacts = new ArrayList<DIMContact>();
     
-    private ArrayList<DIMContact> contacts = new ArrayList<DIMContact>();
+    
     
     private ContactManager() {
     this.add("Emily", 0, true);
@@ -54,10 +54,83 @@ public class ContactManager {
         this.generatedContacts.clear();
         this.generatedContacts.addAll(this.onlinePinned);
         this.generatedContacts.addAll(this.onlineUnpinned);
-        
         this.generatedContacts.addAll(this.offline);
         
+        MainWindow window = (MainWindow)MainWindow.getWindows()[0];
+        window.getContactList().repaint();
+        System.out.println("Repainting");
+        
     
+    }
+    
+    public void unpin(String name) {
+        for(int i = 0; i < this.onlinePinned.size(); ++i) {
+            if(this.onlinePinned.get(i).getName().equals(name)) {
+                this.onlinePinned.get(i).unpin();
+                this.onlineUnpinned.add(this.onlinePinned.get(i));
+                this.onlinePinned.remove(i);
+                this.invalidateList();
+                return;
+            }
+        }
+        for(int i = 0; i < this.offline.size(); ++i) {
+            if(this.offline.get(i).getName().equals(name)) {
+                this.offline.get(i).unpin();
+                this.invalidateList();
+                return;
+            }
+        }
+    }
+    
+    public void pin(String name) {
+        for(int i = 0; i < this.onlineUnpinned.size(); ++i) {
+            if(this.onlineUnpinned.get(i).getName().equals(name)) {
+                this.onlineUnpinned.get(i).pin();
+                this.onlinePinned.add(this.onlineUnpinned.get(i));
+                this.onlineUnpinned.remove(i);
+                this.invalidateList();
+                return;
+            }
+        }
+        for(int i = 0; i < this.offline.size(); ++i) {
+            if(this.offline.get(i).getName().equals(name)) {
+                this.offline.get(i).pin();
+                this.invalidateList();
+                return;
+            }
+        }
+        
+    }
+    
+    public void bringOnline(String name) {
+        for(int i = 0; i < this.offline.size(); ++i) {
+            if(this.offline.get(i).getName().equals(name)) {
+                if(this.offline.get(i).isPinned()) {
+                    this.onlinePinned.add(this.offline.get(i));
+                } else {
+                    this.onlineUnpinned.add(this.offline.get(i));
+                }
+                this.invalidateList();
+                return;
+            }
+        }
+    }
+    
+    public void bringOffline(String name) {
+        for(int i = 0; i < this.onlinePinned.size(); ++i) {
+            if(this.onlinePinned.get(i).getName().equals(name)) {
+                this.offline.add(this.onlinePinned.get(i));
+                this.onlinePinned.remove(i);
+                this.invalidateList();
+            }
+        }
+        for(int i = 0; i < this.onlineUnpinned.size(); ++i) {
+            if(this.onlineUnpinned.get(i).getName().equals(name)) {
+                this.offline.add(this.onlineUnpinned.get(i));
+                this.onlineUnpinned.remove(i);
+                this.invalidateList();
+            }
+        }
     }
     public void add(DIMContact contact) {
         if(contact.getStatus() == 1 && contact.isPinned())
