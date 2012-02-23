@@ -57,6 +57,17 @@ public class ContactManager {
         
     }
     
+    public boolean checkIfEqual(String name) {
+        for (int i = 0; i < this.size(); i++)
+        {
+            if (this.generatedContacts.get(i).getName().equalsIgnoreCase(name))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     private void invalidateList() {
         this.generatedContacts.clear();
         this.generatedContacts.addAll(this.onlinePinned);
@@ -65,9 +76,7 @@ public class ContactManager {
         
         MainWindow window = (MainWindow)MainWindow.getWindows()[0];
         window.getContactList().repaint();
-        System.out.println("Repainting");
-        
-    
+        System.out.println("Repainting");    
     }
     
     public void unpin(String name) {
