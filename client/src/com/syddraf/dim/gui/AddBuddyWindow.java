@@ -86,7 +86,12 @@ public class AddBuddyWindow extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String buddy = jTextField1.getText().trim();
         System.out.println("ActionPerformed");
-        if (ContactManager.getInstance().checkIfEqual(buddy))
+        if (buddy.equals(""))
+        {
+            this.jLabel2.setText("Invalid Buddy Name");
+            jTextField1.setText("");
+        }
+        else if (ContactManager.getInstance().checkIfEqual(buddy))
         {
             this.jLabel2.setText("Name Already in Buddy List");
             jTextField1.setText("");
@@ -103,6 +108,11 @@ public class AddBuddyWindow extends javax.swing.JFrame {
         if(evt.getKeyChar() == '\n') {
             String buddy = jTextField1.getText().trim();
             System.out.println("ActionPerformed");
+            if (buddy.equals(""))
+            {
+                this.jLabel2.setText("Invalid Buddy Name");
+                jTextField1.setText("");
+            }
             if (ContactManager.getInstance().checkIfEqual(buddy))
             {
                 this.jLabel2.setText("Name Already in Buddy List");
