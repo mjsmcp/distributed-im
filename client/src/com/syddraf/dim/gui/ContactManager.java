@@ -79,6 +79,26 @@ public class ContactManager {
         System.out.println("Repainting");    
     }
     
+    public boolean isPinned(String name) {
+       for(int i = 0; i < this.onlinePinned.size(); ++i) {
+            if(this.onlinePinned.get(i).getName().equals(name)) {
+                return this.onlinePinned.get(i).isPinned();
+            }
+        }
+       
+       for(int i = 0; i < this.onlineUnpinned.size(); ++i) {
+            if(this.onlineUnpinned.get(i).getName().equals(name)) {
+                return this.onlineUnpinned.get(i).isPinned();
+            }
+        }
+        for(int i = 0; i < this.offline.size(); ++i) {
+            if(this.offline.get(i).getName().equals(name)) {
+                return this.offline.get(i).isPinned();
+            }
+        }
+        
+        return false;
+    }
     public void unpin(String name) {
         for(int i = 0; i < this.onlinePinned.size(); ++i) {
             if(this.onlinePinned.get(i).getName().equals(name)) {

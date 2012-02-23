@@ -221,18 +221,26 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jList1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MousePressed
-<<<<<<< HEAD
+           System.out.println("Pressed");
         int index = jList1.locationToIndex(evt.getPoint());
         jList1.setSelectedIndex(index);
-=======
+
         System.out.println(evt.getButton());
+        
         // TODO Have Buddy selected/in focus during right-click; have Pin/Unpin
         // Buddy change pinned/unpinned status of selected Buddy
->>>>>>> edbd09e7728e2a6eb25b48c1d29984ef22239341
     }//GEN-LAST:event_jList1MousePressed
 
     private void jMenuItem3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MouseReleased
-        // TODO Toggle Pinned/Unpinned
+        System.out.println("MenuPressed");
+        String name = ((DIMContact)jList1.getSelectedValue()).getName();
+        boolean pinned = ContactManager.getInstance().isPinned(name);
+        System.out.println(name + " is " + pinned);
+        if(pinned)
+            ContactManager.getInstance().unpin(name);
+        else
+            ContactManager.getInstance().pin(name);
+        jList1.repaint();
     }//GEN-LAST:event_jMenuItem3MouseReleased
 
     public javax.swing.JList getContactList() {
