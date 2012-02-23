@@ -4,11 +4,16 @@
  */
 package com.syddraf.dim.gui;
 
+import com.syddraf.dim.model.DIMMessage;
+import com.syddraf.dim.net.NetworkMessageListener;
+import com.syddraf.dim.net.NetworkService;
+import java.util.Locale;
+
 /**
  *
  * @author syddraf
  */
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame implements NetworkMessageListener {
 
     /**
      * Creates new form MainWindow
@@ -17,6 +22,7 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         this.jTextPane1.setEditable(false);
         this.jList1.setSelectedIndex(0);
+       // NetworkService.i().initialize(this);
     }
 
     /**
@@ -143,15 +149,22 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jMenuItem6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem6MouseClicked
-        new ChangeNetworkWindow().setVisible(true);
+        ChangeNetworkWindow n = new ChangeNetworkWindow();
+        n.setLocationRelativeTo(this);
+        n.setVisible(true);
     }//GEN-LAST:event_jMenuItem6MouseClicked
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        new ChangeNetworkWindow().setVisible(true);
+        ChangeNetworkWindow n = new ChangeNetworkWindow();
+        n.setLocationRelativeTo(this);
+        n.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        new ImportExportSettingsWindow().setVisible(true);
+        ImportExportSettingsWindow n = new ImportExportSettingsWindow();
+        n.setLocationRelativeTo(this);
+        n.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -220,4 +233,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void receiveMessage(String from, DIMMessage msg) {
+        ContactManager.getInstance().postMessage(from, msg);
+    }
 }

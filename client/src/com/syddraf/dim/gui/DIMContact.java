@@ -4,6 +4,11 @@
  */
 package com.syddraf.dim.gui;
 
+import com.syddraf.dim.PreferenceManager;
+import com.syddraf.dim.model.DIMMessage;
+import com.syddraf.dim.model.DIMMessageBuilder;
+import com.syddraf.dim.net.NetworkService;
+
 /**
  *
  * @author syddraf
@@ -39,6 +44,8 @@ public class DIMContact {
     
     public void postMessage(String person, String message) {
         this.history = this.history + "<" + person + "> " + message + "\n";
+        DIMMessage m = new DIMMessageBuilder().setFrom(PreferenceManager.getInstance().get("myName", "<None>")).setMessage(message).setTo(person).generate();
+        //NetworkService.i().giveMessage(m);
     }
     
     public String getHistory() { return this.history; }
