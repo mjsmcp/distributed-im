@@ -36,6 +36,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -69,6 +70,14 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu4.setText("Network");
+
+        jMenuItem1.setText("Add Buddy...");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem1);
 
         jMenuItem6.setText("Change Network...");
         jMenuItem6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,6 +167,10 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        new AddBuddyWindow().setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     public javax.swing.JList getContactList() {
         return this.jList1;
     }
@@ -212,6 +225,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
