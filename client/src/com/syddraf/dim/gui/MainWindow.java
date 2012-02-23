@@ -46,6 +46,11 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("Pin/Unpin Buddy");
+        jMenuItem3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenuItem3MouseReleased(evt);
+            }
+        });
         jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -199,9 +204,13 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jList1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MousePressed
-        // TODO Have Buddy selected/in focus during right-click; have Pin/Unpin
-        // Buddy change pinned/unpinned status of selected Buddy
+        int index = jList1.locationToIndex(evt.getPoint());
+        jList1.setSelectedIndex(index);
     }//GEN-LAST:event_jList1MousePressed
+
+    private void jMenuItem3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MouseReleased
+        // TODO Toggle Pinned/Unpinned
+    }//GEN-LAST:event_jMenuItem3MouseReleased
 
     public javax.swing.JList getContactList() {
         return this.jList1;

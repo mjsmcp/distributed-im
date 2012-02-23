@@ -12,6 +12,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pin/Unpin Buddy"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem3MouseReleased"/>
+          </Events>
         </MenuItem>
       </SubComponents>
     </Container>
