@@ -44,6 +44,7 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
         jTextPane1 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -67,7 +68,6 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
         jList1.addListSelectionListener(new ContactListSelectionListener());
         jList1.setModel(model
         );
-        jList1.setComponentPopupMenu(jPopupMenu1);
         jList1.setFixedCellHeight(25);
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, jPopupMenu1, org.jdesktop.beansbinding.ObjectProperty.create(), jList1, org.jdesktop.beansbinding.BeanProperty.create("componentPopupMenu"), "");
@@ -94,6 +94,15 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
         jScrollPane2.setViewportView(jTextPane1);
 
         jMenu1.setText("File");
+
+        jMenuItem4.setText("Close");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
         jMenuBar1.add(jMenu1);
 
         jMenu4.setText("Network");
@@ -171,12 +180,7 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         if(evt.getKeyChar() == '\n') {
             System.out.println("Sent");
-            /*ContactListModel model = (ContactListModel)jList1.getModel();
-            model.addElement(new DIMContact(jTextField1.getText(), 0));
-            
-            getContentPane().invalidate();
-            getContentPane().validate();
-            jList1.repaint();*/
+       
             
             DIMContact contact = (DIMContact)jList1.getSelectedValue();
             contact.postMessage("Me", jTextField1.getText());
@@ -243,6 +247,10 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
         jList1.repaint();
     }//GEN-LAST:event_jMenuItem3MouseReleased
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
     public javax.swing.JList getContactList() {
         return this.jList1;
     }
@@ -300,6 +308,7 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPopupMenu jPopupMenu1;
