@@ -41,9 +41,9 @@ public class AddBuddyWindow extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
             }
         });
 
@@ -83,13 +83,8 @@ public class AddBuddyWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("Button");
-        String buddy = jTextField1.getText();
+        String buddy = jTextField1.getText().trim();
         System.out.println("ActionPerformed");
         if (ContactManager.getInstance().checkIfEqual(buddy))
         {
@@ -103,6 +98,24 @@ public class AddBuddyWindow extends javax.swing.JFrame {
             jTextField1.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        if(evt.getKeyChar() == '\n') {
+            String buddy = jTextField1.getText().trim();
+            System.out.println("ActionPerformed");
+            if (ContactManager.getInstance().checkIfEqual(buddy))
+            {
+                this.jLabel2.setText("Name Already in Buddy List");
+                jTextField1.setText("");
+            }
+            else
+            {
+                ContactManager.getInstance().add(buddy, 0, false);
+                this.jLabel2.setText("Contact Added");
+                jTextField1.setText("");
+            }
+        }
+    }//GEN-LAST:event_jTextField1KeyReleased
 
     /**
      * @param args the command line arguments
