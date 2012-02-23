@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package com.syddraf.dim.gui;
+import com.syddraf.dim.model.DIMMessage;
 import java.util.*;
 /**
  *
@@ -17,7 +18,13 @@ public class ContactManager {
     private ArrayList<DIMContact> generatedContacts = new ArrayList<DIMContact>();
     
     
-    
+    public void postMessage(String name, DIMMessage msg) {
+        for(int i = 0; i < this.generatedContacts.size(); ++i) {
+            if(this.generatedContacts.get(i).getName().equals(name)) {
+                this.generatedContacts.get(i).postMessage(name, msg.bodyMessage());
+            }
+        }
+    }
     private ContactManager() {
     this.add("Emily", 0, true);
     this.add("Brandon Conway", 1, false);

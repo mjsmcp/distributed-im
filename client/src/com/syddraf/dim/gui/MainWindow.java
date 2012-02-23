@@ -4,11 +4,16 @@
  */
 package com.syddraf.dim.gui;
 
+import com.syddraf.dim.model.DIMMessage;
+import com.syddraf.dim.net.NetworkMessageListener;
+import com.syddraf.dim.net.NetworkService;
+import java.util.Locale;
+
 /**
  *
  * @author syddraf
  */
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame implements NetworkMessageListener {
 
     /**
      * Creates new form MainWindow
@@ -17,6 +22,7 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         this.jTextPane1.setEditable(false);
         this.jList1.setSelectedIndex(0);
+       // NetworkService.i().initialize(this);
     }
 
     /**
@@ -180,15 +186,22 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jMenuItem6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem6MouseClicked
-        new ChangeNetworkWindow().setVisible(true);
+        ChangeNetworkWindow n = new ChangeNetworkWindow();
+        n.setLocationRelativeTo(this);
+        n.setVisible(true);
     }//GEN-LAST:event_jMenuItem6MouseClicked
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        new ChangeNetworkWindow().setVisible(true);
+        ChangeNetworkWindow n = new ChangeNetworkWindow();
+        n.setLocationRelativeTo(this);
+        n.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        new ImportExportSettingsWindow().setVisible(true);
+        ImportExportSettingsWindow n = new ImportExportSettingsWindow();
+        n.setLocationRelativeTo(this);
+        n.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -196,16 +209,26 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        new AddBuddyWindow().setVisible(true);
+        AddBuddyWindow n = new AddBuddyWindow();
+        n.setLocationRelativeTo(this);
+        n.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        NotificationWindow n = new NotificationWindow();
+        n.setLocationRelativeTo(this);
+        n.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jList1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MousePressed
+<<<<<<< HEAD
         int index = jList1.locationToIndex(evt.getPoint());
         jList1.setSelectedIndex(index);
+=======
+        System.out.println(evt.getButton());
+        // TODO Have Buddy selected/in focus during right-click; have Pin/Unpin
+        // Buddy change pinned/unpinned status of selected Buddy
+>>>>>>> edbd09e7728e2a6eb25b48c1d29984ef22239341
     }//GEN-LAST:event_jList1MousePressed
 
     private void jMenuItem3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MouseReleased
@@ -278,4 +301,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane1;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void receiveMessage(String from, DIMMessage msg) {
+        ContactManager.getInstance().postMessage(from, msg);
+    }
 }

@@ -33,10 +33,15 @@ public class PreferenceManager {
 				}
 				
 				this.data = new Gson().fromJson(s, DataStore.class);
+                                if(data == null) {
+                                    System.out.println("DataStore created");
+                                    this.data = new DataStore(); 
+                                }
 				fis.close();
 			} catch(FileNotFoundException e) {
+                                System.out.println("DataStore created");
 				this.data = new DataStore();
-			}
+			} 
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
