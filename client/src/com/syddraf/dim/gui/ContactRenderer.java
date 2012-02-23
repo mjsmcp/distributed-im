@@ -25,7 +25,10 @@ public class ContactRenderer extends DefaultListCellRenderer {
             int status = contact.getStatus();
             switch(status) {
                 case 1:
-                    label.setIcon(new ImageIcon("img/online.png"));
+                    if(contact.isPinned())
+                        label.setIcon(new ImageIcon("img/pinned.png"));
+                    else
+                        label.setIcon(new ImageIcon("img/online.png"));
                     
                     break;
                 case 0:

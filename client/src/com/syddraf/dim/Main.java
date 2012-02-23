@@ -75,9 +75,9 @@ public class Main {
 			Server.main(path);
                      
                         */
-            System.out.println(args[0]);
+            
             PreferenceManager.init("/home/syddraf/prefs");
-            PreferenceManager.getInstance().put("myName", args[0]);
+            PreferenceManager.getInstance().put("myName", "Me");
             new MainWindow().setVisible(true);
 	}
 

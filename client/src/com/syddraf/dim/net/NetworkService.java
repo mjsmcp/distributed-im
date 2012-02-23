@@ -65,11 +65,11 @@ public class NetworkService {
 	private NetworkService() {
         try {
             
-            InetAddress addr = InetAddress.getByName("192.168.0.65");
-            System.out.println("Connecting to socket 8198 + " + addr.getHostName());
-            this.socket = new Socket(addr, 8198);
-            this.senderThread = new SenderThread();
-            this.senderThread.start();
+            //InetAddress addr = InetAddress.getByName("192.168.0.65");
+            //System.out.println("Connecting to socket 8198 + " + addr.getHostName());
+            //this.socket = new Socket(addr, 8198);
+            //this.senderThread = new SenderThread();
+            //this.senderThread.start();
         } catch (Exception ex) {
             Logger.getLogger(NetworkService.class.getName()).log(Level.SEVERE, null, ex);
         }
