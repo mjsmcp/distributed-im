@@ -1,6 +1,8 @@
 package com.syddraf.dim.net;
 
 import com.google.gson.Gson;
+
+import java.util.Random;
 import java.util.concurrent.*;
 
 import com.syddraf.dim.model.DIMMessage;
@@ -11,9 +13,16 @@ import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import net.tomp2p.connection.Bindings;
+import net.tomp2p.p2p.Peer;
+import net.tomp2p.peers.Number160;
+
 public class NetworkService {
+	private static final int DIM_PORT = 4000;
 	Socket socket = null;
-        NetworkMessageListener l = null;
+    NetworkMessageListener l = null;
+    private SenderThread senderThread = null;
+    private ReceiverThread receiverThread = null;
 	public class SenderThread extends Thread{
 		private BlockingQueue<DIMMessage> inputMessageQueue = 
 				new LinkedBlockingQueue<DIMMessage>();	
@@ -50,29 +59,16 @@ public class NetworkService {
                
             }
         }
-	private SenderThread senderThread = null;
-	public void giveMessage(DIMMessage msg) {
-            try {
-		this.senderThread.inputMessageQueue.put(msg);
-            } catch(InterruptedException e) {
-                e.printStackTrace();
-            }
-	}
+	
+	
+	
+
 	
 	
 	
 	private static NetworkService instance = null;
 	private NetworkService() {
-        try {
-            
-            InetAddress addr = InetAddress.getByName("192.168.0.65");
-            System.out.println("Connecting to socket 8198 + " + addr.getHostName());
-            this.socket = new Socket(addr, 8198);
-            this.senderThread = new SenderThread();
-            this.senderThread.start();
-        } catch (Exception ex) {
-            Logger.getLogger(NetworkService.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
 		
 	}
 	
@@ -83,16 +79,41 @@ public class NetworkService {
 	}
 	
 	public void initialize(NetworkMessageListener l) {
-                System.out.println("Initializing NetworkService");
+        System.out.println("Initializing NetworkService");
 		this.l = l;
+		
+        try {
+            //Connect to the swarm
+            Random r = new Random();
+            Peer peer = new Peer(new Number160(r));
+            Bindings b = new Bindings();
+            peer.listen(NetworkService.DIM_PORT, NetworkService.DIM_PORT, b);
+        	// Start up the senderThread
+            this.senderThread = new SenderThread();
+            this.senderThread.start();
+            
+            // Start up the receiverThread
+            this.receiverThread = new ReceiverThread();
+            this.receiverThread.start();
+        } catch (Exception ex) {
+            Logger.getLogger(NetworkService.class.getName()).log(Level.SEVERE, null, ex);
+        }
 	}
 	
 	public void uninitialize() {
 		
 	}
 	
-	public void reinitialize() {
-		//this.uninitialize();
-		//this.initialize();
+	public void reinitialize(NetworkMessageListener l) {
+		this.uninitialize();
+		this.initialize(l);
+	}
+	
+	public void giveMessage(DIMMessage msg) {
+		try {
+			this.senderThread.inputMessageQueue.put(msg);
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 }
