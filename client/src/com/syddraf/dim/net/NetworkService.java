@@ -68,7 +68,6 @@ public class NetworkService {
 	
 	private static NetworkService instance = null;
 	private NetworkService() {
-
 		
 	}
 	

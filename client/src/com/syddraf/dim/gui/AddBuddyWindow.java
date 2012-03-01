@@ -32,12 +32,18 @@ public class AddBuddyWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Add Contact");
 
         jButton1.setText("Add");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
             }
         });
 
@@ -77,9 +83,15 @@ public class AddBuddyWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        String buddy = jTextField1.getText();
-        if (ContactManager.getInstance().checkIfEqual(buddy))
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String buddy = jTextField1.getText().trim();
+        System.out.println("ActionPerformed");
+        if (buddy.equals(""))
+        {
+            this.jLabel2.setText("Invalid Buddy Name");
+            jTextField1.setText("");
+        }
+        else if (ContactManager.getInstance().checkIfEqual(buddy))
         {
             this.jLabel2.setText("Name Already in Buddy List");
             jTextField1.setText("");
@@ -90,7 +102,30 @@ public class AddBuddyWindow extends javax.swing.JFrame {
             this.jLabel2.setText("Contact Added");
             jTextField1.setText("");
         }
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        if(evt.getKeyChar() == '\n') {
+            String buddy = jTextField1.getText().trim();
+            System.out.println("ActionPerformed");
+            if (buddy.equals(""))
+            {
+                this.jLabel2.setText("Invalid Buddy Name");
+                jTextField1.setText("");
+            }
+            if (ContactManager.getInstance().checkIfEqual(buddy))
+            {
+                this.jLabel2.setText("Name Already in Buddy List");
+                jTextField1.setText("");
+            }
+            else
+            {
+                ContactManager.getInstance().add(buddy, 0, false);
+                this.jLabel2.setText("Contact Added");
+                jTextField1.setText("");
+            }
+        }
+    }//GEN-LAST:event_jTextField1KeyReleased
 
     /**
      * @param args the command line arguments
