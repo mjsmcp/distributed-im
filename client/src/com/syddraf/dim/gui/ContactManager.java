@@ -21,11 +21,12 @@ public class ContactManager {
     public void postMessage(String name, DIMMessage msg) {
         for(int i = 0; i < this.generatedContacts.size(); ++i) {
             if(this.generatedContacts.get(i).getName().equals(name)) {
-                this.generatedContacts.get(i).postMessage(name, msg.bodyMessage());
+                this.generatedContacts.get(i).receiveMessage(name, msg.bodyMessage());
             }
         }
     }
     private ContactManager() {
+    this.add("test_server", 1, true);
     this.add("Emily", 0, true);
     this.add("Brandon Conway", 1, false);
     this.add("Yi-Chin Sun", 1, false);

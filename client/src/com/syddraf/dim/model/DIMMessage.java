@@ -1,5 +1,7 @@
 package com.syddraf.dim.model;
 
+import com.google.gson.Gson;
+
 public class DIMMessage {
 
 	// Mandatory Fields
@@ -12,6 +14,7 @@ public class DIMMessage {
 	// Optional Fields
 	private String fileName = "";
 	private long dataSize = 0;
+	public String serialize() { return new Gson().toJson(this);}
 	
 	// Getters
 	public String headerTo() { return this.to; }

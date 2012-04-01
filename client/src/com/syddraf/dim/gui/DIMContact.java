@@ -42,9 +42,14 @@ public class DIMContact {
         return this.contactName;
     }
     
-    public void postMessage(String person, String message) {
-        this.history = this.history + "<" + person + "> " + message + "\n";
-        DIMMessage m = new DIMMessageBuilder().setFrom(PreferenceManager.getInstance().get("myName", "<None>")).setMessage(message).setTo(person).generate();
+    public void receiveMessage(String person, String message) {
+    	 this.history = this.history + "<" + person + "> " + message + "\n";
+    }
+    
+    public void postMessage(String message) {
+    	String me = PreferenceManager.getInstance().get("myName", "-");
+    	 this.history = this.history + "<" + me + "> " + message + "\n";
+        DIMMessage m = new DIMMessageBuilder().setFrom(me).setMessage(message).setTo(this.contactName).generate();
         //NetworkService.i().giveMessage(m);
     }
     

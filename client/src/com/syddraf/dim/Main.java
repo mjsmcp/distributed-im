@@ -2,21 +2,8 @@ package com.syddraf.dim;
 
 
 
-import java.io.File;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.UnknownHostException;
-
 import java.security.NoSuchAlgorithmException;
-import net.tomp2p.futures.FutureBootstrap;
-import net.tomp2p.futures.FutureDHT;
-import net.tomp2p.p2p.Peer;
-import net.tomp2p.peers.Number160;
-import net.tomp2p.storage.Data;
-
 import com.syddraf.dim.crypto.KeyManager;
-import com.syddraf.jdht.JDHT;
-import com.syddraf.server.Server;
 import com.syddraf.dim.gui.*;
 public class Main {
 
@@ -24,7 +11,7 @@ public class Main {
 		System.out.println("Usage: ");
 		System.out.println("dim MODE");
 		System.out.println("dim MODE PREF");
-		System.out.println("MODE = {seed, peer, server}");
+		System.out.println("MODE = {seed, peer}");
 		System.out.println("PREF = Filepath to preferences file");
 		System.exit(0);
 	}
@@ -32,27 +19,14 @@ public class Main {
 	public static void runAsSeed(String preferencePath) {
 		PreferenceManager.init(preferencePath);
 		KeyManager.init();
-		
-		try {
-			JDHT jdht = new JDHT(4000);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
 		
 	}
 	
 	public static void runAsPeer(String preferencePath) {
 		PreferenceManager.init(preferencePath);
 		KeyManager.init();
-		try {
-			JDHT jdht = new JDHT(InetAddress.getByName("192.168.0.64"), 4000);
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 		
 	}
 	/**
