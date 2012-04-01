@@ -63,7 +63,7 @@ public class NetworkService {
     	}
     }
 	public class SenderThread extends Thread {
-		private BlockingQueue<DIMMessage> inputMessageQueue = 
+		public BlockingQueue<DIMMessage> inputMessageQueue = 
 				new LinkedBlockingQueue<DIMMessage>();	
 		
 		public void run() {
@@ -82,7 +82,7 @@ public class NetworkService {
 						// Query the 
 						FutureDHT dht = peer.get(Number160.createHash(destination));
 						dht.awaitUninterruptibly();
-						
+						System.out.println(destination);
 						// Extract the PeerAddress
 						String destinationEntryJson = new String(dht.getData().getData());
 						NetworkEntry destinationEntry = new Gson().fromJson(destinationEntryJson, NetworkEntry.class);
@@ -126,11 +126,11 @@ public class NetworkService {
         try {
             //Connect to the swarm
         	r = new Random();
-			b = new Bindings();
-			peer = new PeerMaker(new Number160(r)).setPorts(4000).setBindings(b).buildAndListen();
-			InetSocketAddress inetSock = new InetSocketAddress(InetAddress.getByName("192.168.0.3"),4000);
-			FutureBootstrap fb = peer.bootstrap(inetSock);
-			fb.awaitUninterruptibly();
+                b = new Bindings();
+                peer = new PeerMaker(new Number160(r)).setPorts(4000).setBindings(b).buildAndListen();
+                InetSocketAddress inetSock = new InetSocketAddress(InetAddress.getByName("192.168.0.3"),4000);
+                FutureBootstrap fb = peer.bootstrap(inetSock);
+                fb.awaitUninterruptibly();
 			
         	// Start up the senderThread
             this.senderThread = new SenderThread();
@@ -152,6 +152,7 @@ public class NetworkService {
             });
             
             // Load my information into the network
+            
             NetworkEntry entry = new NetworkEntry();
             KeyFactory fact = KeyFactory.getInstance("RSA");
 			RSAPublicKeySpec pub = fact.getKeySpec(KeyManager.getKeyPair().getPublic(), RSAPublicKeySpec.class);
@@ -162,8 +163,36 @@ public class NetworkService {
             entry.tcp_port = peer.getPeerAddress().portTCP();
             entry.udp_port = peer.getPeerAddress().portUDP();
             entry.user_id = PreferenceManager.getInstance().get("myName", "-");
-            Data d = new Data(new Gson().toJson(entry));
-            peer.add(Number160.createHash(entry.user_id), d);
+            
+
+            Number160 nr = Number160.createHash(entry.user_id);
+            Data d = new Data(new Gson().toJson(entry).getBytes());
+            FutureDHT futureDHT = peer.put(nr, d);
+            futureDHT.awaitUninterruptibly();
+            System.out.println("Network Initialized");
+            
+            /*
+            // Load my information into the network
+            
+            NetworkEntry entry2 = new NetworkEntry();
+            KeyFactory fact2 = KeyFactory.getInstance("RSA");
+            RSAPublicKeySpec pub2 = fact.getKeySpec(KeyManager.getKeyPair().getPublic(), RSAPublicKeySpec.class);
+            entry.ip_addr = peer.getPeerAddress().getInetAddress().getHostAddress();
+            entry.expo = pub.getPublicExponent().toString();
+            entry.modulus = pub.getModulus().toString();
+            entry.peer_address = peer.getPeerAddress().getID().toString();
+            entry.tcp_port = peer.getPeerAddress().portTCP();
+            entry.udp_port = peer.getPeerAddress().portUDP();
+            entry.user_id = "matthew";//PreferenceManager.getInstance().get("myName", "-");
+            
+
+            Number160 nr2 = Number160.createHash(entry.user_id);
+            Data d2 = new Data(new Gson().toJson(entry2).getBytes());
+            FutureDHT futureDHT2 = peer.put(nr2, d2);
+            futureDHT2.awaitUninterruptibly();
+            */
+
+           
             
             
         } catch (Exception ex) {
@@ -181,10 +210,10 @@ public class NetworkService {
 	}
 	
 	public void giveMessage(DIMMessage msg) {
-		try {
-			this.senderThread.inputMessageQueue.put(msg);
-		} catch(InterruptedException e) {
-			e.printStackTrace();
-		}
+            if(msg == null) System.out.println("error, null message");
+            if(this.senderThread == null) System.out.println("Thread null??");
+            if(this.senderThread.inputMessageQueue == null) System.out.println("error null queue");
+            this.senderThread.inputMessageQueue.offer(msg);
+		
 	}
 }

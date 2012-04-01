@@ -5,6 +5,7 @@ package com.syddraf.dim;
 import java.security.NoSuchAlgorithmException;
 import com.syddraf.dim.crypto.KeyManager;
 import com.syddraf.dim.gui.*;
+import com.syddraf.dim.net.NetworkService;
 public class Main {
 
 	public static void terminate() {
@@ -51,7 +52,8 @@ public class Main {
                         */
             
             PreferenceManager.init("/home/syddraf/prefs");
-            PreferenceManager.getInstance().put("myName", "Me");
+            PreferenceManager.getInstance().put("myName", args[0]);
+            KeyManager.init();
             new MainWindow().setVisible(true);
 	}
 

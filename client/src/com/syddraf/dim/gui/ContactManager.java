@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package com.syddraf.dim.gui;
+import com.syddraf.dim.PreferenceManager;
 import com.syddraf.dim.model.DIMMessage;
 import java.util.*;
 /**
@@ -26,14 +27,16 @@ public class ContactManager {
         }
     }
     private ContactManager() {
-    this.add("test_server", 1, true);
-    this.add("Emily", 0, true);
-    this.add("Brandon Conway", 1, false);
-    this.add("Yi-Chin Sun", 1, false);
-    this.add("Keiko Nakajima", 1, true);
-    this.add("Julie Adams", 1, true);
-    this.add("Larry Hamm", 1, true);
-    this.add("Lauren Arpin", 0, false);
+    String me = PreferenceManager.getInstance().get("myName", "me");
+    if(me.equals("matthew")) {
+        this.add("test_server", 1, true);
+    } else if (me.equals("test_server")) {
+        this.add("matthew", 1, true);
+    } else {
+        this.add("I am error.",0,false);
+    }
+    
+    
 
     }
     

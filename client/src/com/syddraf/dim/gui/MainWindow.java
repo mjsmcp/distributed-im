@@ -22,7 +22,11 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
         initComponents();
         this.jTextPane1.setEditable(false);
         this.jList1.setSelectedIndex(0);
-       // NetworkService.i().initialize(this);
+        NetworkService.i().initialize(this);
+    }
+    
+    public void refresh() {
+        this.jTextPane1.setText(((DIMContact)jList1.getSelectedValue()).getHistory());
     }
 
     /**
@@ -183,7 +187,8 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
        
             
             DIMContact contact = (DIMContact)jList1.getSelectedValue();
-            contact.postMessage("Me", jTextField1.getText());
+            contact.postMessage(jTextField1.getText());
+            System.out.println("TRACE: jTextField1KeyReleased");
             jTextField1.setText("");
             this.jTextPane1.setText(contact.getHistory());
         }

@@ -44,13 +44,14 @@ public class DIMContact {
     
     public void receiveMessage(String person, String message) {
     	 this.history = this.history + "<" + person + "> " + message + "\n";
+         ((MainWindow)MainWindow.getWindows()[0]).refresh();
     }
     
     public void postMessage(String message) {
     	String me = PreferenceManager.getInstance().get("myName", "-");
     	 this.history = this.history + "<" + me + "> " + message + "\n";
         DIMMessage m = new DIMMessageBuilder().setFrom(me).setMessage(message).setTo(this.contactName).generate();
-        //NetworkService.i().giveMessage(m);
+        NetworkService.i().giveMessage(m);
     }
     
     public String getHistory() { return this.history; }

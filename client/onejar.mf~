@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Main-Class: com.simontuffs.onejar.Boot
+Class-Path: lib/something-1.jar lib/something-2.jar
+One-Jar-Main-Class: my.stuff.HelloWorld
