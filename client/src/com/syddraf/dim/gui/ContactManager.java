@@ -5,13 +5,16 @@
 package com.syddraf.dim.gui;
 import com.syddraf.dim.PreferenceManager;
 import com.syddraf.dim.model.DIMMessage;
+import com.syddraf.dim.net.NetworkService;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author syddraf
  */
 public class ContactManager {
-    
+    Logger msgRecLogger = Logger.getLogger("Message Received");
     private ArrayList<DIMContact> onlinePinned = new ArrayList<DIMContact>();
     private ArrayList<DIMContact> onlineUnpinned = new ArrayList<DIMContact>();
     private ArrayList<DIMContact> offline = new ArrayList<DIMContact>();
@@ -20,7 +23,7 @@ public class ContactManager {
     
     
     public void postMessage(String name, DIMMessage msg) {
-        
+        this.msgRecLogger.log(Level.INFO, "[ContactManager] Received from" +msg.headerFrom());
         // Look for the user in the contacts
         for(int i = 0; i < this.generatedContacts.size(); ++i) {
             if(this.generatedContacts.get(i).getName().equals(name)) {

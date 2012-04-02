@@ -33,6 +33,8 @@ import net.tomp2p.rpc.ObjectDataReply;
 import net.tomp2p.storage.Data;
 
 public class NetworkService {
+    Logger msgRecLogger = Logger.getLogger("Message Received");
+    Logger msgSndLogger = Logger.getLogger("Message Sent");
 	private static final int DIM_PORT = 4000;
 	Socket socket = null;
     NetworkMessageListener l = null;
@@ -50,6 +52,7 @@ public class NetworkService {
     		while(true) {
 	    		try {
 					DIMMessage msg = messageQueue.take();
+                                        NetworkService.this.msgRecLogger.log(Level.INFO, "[ReceiverThread] Received from" +msg.headerFrom());
 					ContactManager.getInstance().postMessage(msg.headerFrom(), msg);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
@@ -144,8 +147,10 @@ public class NetworkService {
 				@Override
 				public Object reply(PeerAddress arg0, Object arg1)
 						throws Exception {
+                                   
 					DIMMessage msg = new Gson().fromJson((String) arg1, DIMMessage.class);
-					NetworkService.this.receiverThread.messageReceived(msg);
+					NetworkService.this.msgRecLogger.log(Level.INFO, "[Callback] Received from" +msg.headerFrom());
+                                        NetworkService.this.receiverThread.messageReceived(msg);
 					return null;
 				}
             	
