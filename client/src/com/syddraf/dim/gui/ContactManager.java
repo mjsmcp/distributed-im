@@ -43,11 +43,18 @@ public class ContactManager {
     }
     private ContactManager() {
     String me = PreferenceManager.getInstance().get("myName", "me");
+    
     if(me.equals("matthew")) {
         this.add("test_server", 1, true);
     } else if (me.equals("test_server")) {
         this.add("matthew", 1, true);
-    } else {
+    } else if(me.equals("test1")) {
+        
+    } else if(me.equals("test2")) {
+        
+    }
+    
+    else {
         this.add("I am error.",0,false);
     }
     

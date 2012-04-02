@@ -119,18 +119,22 @@ public class NotificationWindow extends javax.swing.JFrame {
 
     private void newMessageSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMessageSoundActionPerformed
         PreferenceManager.getInstance().put("newMessageSound", Boolean.toString(this.newMessageSound.isSelected()));
+        MyLogger.logClick("newMessageSoundActionPerformed Clicked");
     }//GEN-LAST:event_newMessageSoundActionPerformed
 
     private void newMessageVisualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMessageVisualActionPerformed
         PreferenceManager.getInstance().put("newMessageVisual", Boolean.toString(this.newMessageVisual.isSelected()));
+        MyLogger.logClick("newMessageVisualActionPerformed Clicked");
     }//GEN-LAST:event_newMessageVisualActionPerformed
 
     private void statusSoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusSoundActionPerformed
         PreferenceManager.getInstance().put("statusSound", Boolean.toString(this.statusSound.isSelected()));
+        MyLogger.logClick("statusSoundActionPerformed Clicked");
     }//GEN-LAST:event_statusSoundActionPerformed
 
     private void statusVisualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusVisualActionPerformed
         PreferenceManager.getInstance().put("statusVisual", Boolean.toString(this.statusVisual.isSelected()));
+        MyLogger.logClick("statusVisualActionPerformed Clicked");
     }//GEN-LAST:event_statusVisualActionPerformed
 
     /**

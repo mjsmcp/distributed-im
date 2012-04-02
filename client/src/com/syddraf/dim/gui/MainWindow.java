@@ -183,6 +183,7 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         if(evt.getKeyChar() == '\n') {
+            MyLogger.logClick("Message Send");
             System.out.println("Sent");
        
             
@@ -195,12 +196,14 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     }//GEN-LAST:event_jTextField1KeyReleased
 
     private void jMenuItem6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem6MouseClicked
+        MyLogger.logClick("ChangeNetworkWindow Opened");
         ChangeNetworkWindow n = new ChangeNetworkWindow();
         n.setLocationRelativeTo(this);
         n.setVisible(true);
     }//GEN-LAST:event_jMenuItem6MouseClicked
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        MyLogger.logClick("ChangeNetworkWindow Opened");
         ChangeNetworkWindow n = new ChangeNetworkWindow();
         n.setLocationRelativeTo(this);
         n.setVisible(true);
@@ -208,6 +211,7 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        MyLogger.logClick("ImportExportSettingsWindow Opened");
         ImportExportSettingsWindow n = new ImportExportSettingsWindow();
         n.setLocationRelativeTo(this);
         n.setVisible(true);
@@ -218,19 +222,21 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        MyLogger.logClick("AddBuddyWindow Opened");
         AddBuddyWindow n = new AddBuddyWindow();
         n.setLocationRelativeTo(this);
         n.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        MyLogger.logClick("NotificationWindow Opened");
         NotificationWindow n = new NotificationWindow();
         n.setLocationRelativeTo(this);
         n.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jList1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MousePressed
-           System.out.println("Pressed");
+        MyLogger.logClick("Contact Clicked");
         int index = jList1.locationToIndex(evt.getPoint());
         jList1.setSelectedIndex(index);
 
@@ -241,7 +247,7 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     }//GEN-LAST:event_jList1MousePressed
 
     private void jMenuItem3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem3MouseReleased
-        System.out.println("MenuPressed");
+        MyLogger.logClick("Pin/Unpin Clicked");
         String name = ((DIMContact)jList1.getSelectedValue()).getName();
         boolean pinned = ContactManager.getInstance().isPinned(name);
         System.out.println(name + " is " + pinned);
@@ -253,6 +259,7 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     }//GEN-LAST:event_jMenuItem3MouseReleased
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+       MyLogger.logClick("MainWindow Closed");
         this.dispose();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 

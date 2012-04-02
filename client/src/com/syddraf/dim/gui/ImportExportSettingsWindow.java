@@ -137,6 +137,7 @@ public class ImportExportSettingsWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        MyLogger.logClick("Import Open Dialog Opened");
         JFileChooser chooser = new JFileChooser();
         int rVal = chooser.showOpenDialog(this);
         System.out.println(rVal);
@@ -149,15 +150,18 @@ public class ImportExportSettingsWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        MyLogger.logClick("Import Button Pushed");
         this.jLabel3.setText("Imported Successfully");
         //TODO actually import
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        MyLogger.logClick("Export Button Pushed");
         this.jLabel5.setText("Exported Successfully");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       MyLogger.logClick("Export Dialog Opened");
         JFileChooser chooser = new JFileChooser();
         int rVal = chooser.showSaveDialog(this);
         System.out.println(rVal);

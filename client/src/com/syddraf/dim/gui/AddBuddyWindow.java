@@ -84,6 +84,7 @@ public class AddBuddyWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        MyLogger.logClick("AddBuddyButton Clicked");
         String buddy = jTextField1.getText().trim();
         System.out.println("ActionPerformed");
         if (buddy.equals(""))
@@ -105,7 +106,9 @@ public class AddBuddyWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        
         if(evt.getKeyChar() == '\n') {
+            MyLogger.logClick("AddBuddyEnter Pushed");
             String buddy = jTextField1.getText().trim();
             System.out.println("ActionPerformed");
             if (buddy.equals(""))
