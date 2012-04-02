@@ -20,9 +20,21 @@ public class ContactManager {
     
     
     public void postMessage(String name, DIMMessage msg) {
+        
+        // Look for the user in the contacts
         for(int i = 0; i < this.generatedContacts.size(); ++i) {
             if(this.generatedContacts.get(i).getName().equals(name)) {
                 this.generatedContacts.get(i).receiveMessage(name, msg.bodyMessage());
+                return;
+            }
+        }
+        
+        // If he's not there, add the user, and do this again.
+        this.add(name, 1, false);
+        for(int i = 0; i < this.generatedContacts.size(); ++i) {
+            if(this.generatedContacts.get(i).getName().equals(name)) {
+                this.generatedContacts.get(i).receiveMessage(name, msg.bodyMessage());
+                return;
             }
         }
     }
