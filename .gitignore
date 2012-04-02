@@ -1,7 +1,6 @@
 client/bin
 /client/nbproject/private/
 /client/build/
-/client/dist/
 /SocatServer/nbproject/private/
 /SocatServer/dist/
 /SocatServer/build/
