@@ -82,10 +82,10 @@
     <import file="one-jar-ant-task.xml" />
     <target name="dist-all" depends="jar"
             description="Bundles a stand-alone OneJAR distribution">
-	<mkdir dir="${dist.jar.dir}/natives" />
-	<mkdir dir="${dist.jar.dir}/natives/linux" />
-	<mkdir dir="${dist.jar.dir}/natives/win" />
-	<mkdir dir="${dist.jar.dir}/natives/mac" />
+	<mkdir dir="${dist.jar.dir}/natives">
+	<mkdir dir="${dist.jar.dir}/natives/linux">
+	<mkdir dir="${dist.jar.dir}/natives/win">
+	<mkdir dir="${dist.jar.dir}/natives/mac">
 
         <echo>Bundling: OneJAR is copying natives to ${dist.jar.dir}/natives </echo>
         <copy todir="${dist.jar.dir}/natives/linux">

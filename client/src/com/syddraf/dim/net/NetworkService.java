@@ -128,7 +128,7 @@ public class NetworkService {
         	r = new Random();
                 b = new Bindings();
                 peer = new PeerMaker(new Number160(r)).setPorts(4000).setBindings(b).buildAndListen();
-                InetSocketAddress inetSock = new InetSocketAddress(InetAddress.getByName("192.168.0.3"),4000);
+                InetSocketAddress inetSock = new InetSocketAddress(InetAddress.getByName("129.59.61.182"),4000);
                 FutureBootstrap fb = peer.bootstrap(inetSock);
                 fb.awaitUninterruptibly();
 			
