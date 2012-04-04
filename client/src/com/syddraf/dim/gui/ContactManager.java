@@ -48,11 +48,17 @@ public class ContactManager {
         this.add("test_server", 1, true);
     } else if (me.equals("test_server")) {
         this.add("matthew", 1, true);
-    } else if(me.equals("test1")) {
-        
-    } else if(me.equals("test2")) {
-        
-    }
+    } else if(me.equals("test1") || me.equals("test2")) {
+      this.add("OfflinePersonOne", 0, false);
+      this.add("OfflinePersonTwo", 0, false);
+      this.add("OfflinePersonThree", 0, false);
+      this.add("OnlinePersonOne", 1, false);
+      this.add("OnlinePersonTwo", 1, false);
+      this.add("OnlinePersonThree", 1, false);
+      this.add("OnlinePersonFour", 1, false);
+      this.add("OnlinePersonFive", 1, true);
+      this.add("OnlinePersonSix", 1, true);
+    } 
     
     else {
         this.add("I am error.",0,false);

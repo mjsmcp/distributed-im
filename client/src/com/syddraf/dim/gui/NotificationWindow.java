@@ -46,6 +46,7 @@ public class NotificationWindow extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("DIM Notifications");
 
+        newMessageSound.setSelected(true);
         newMessageSound.setText("Play Sound");
         newMessageSound.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,6 +56,7 @@ public class NotificationWindow extends javax.swing.JFrame {
 
         jLabel1.setText("New Message");
 
+        newMessageVisual.setSelected(true);
         newMessageVisual.setText("Flash Buddy List");
         newMessageVisual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +66,7 @@ public class NotificationWindow extends javax.swing.JFrame {
 
         jLabel2.setText("Status Change");
 
+        statusSound.setSelected(true);
         statusSound.setText("Play Sound");
         statusSound.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +74,7 @@ public class NotificationWindow extends javax.swing.JFrame {
             }
         });
 
+        statusVisual.setSelected(true);
         statusVisual.setText("Flash Buddy List");
         statusVisual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

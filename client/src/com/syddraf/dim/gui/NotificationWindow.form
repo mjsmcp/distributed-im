@@ -65,6 +65,7 @@
   <SubComponents>
     <Component class="javax.swing.JCheckBox" name="newMessageSound">
       <Properties>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Play Sound"/>
       </Properties>
       <Events>
@@ -78,6 +79,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="newMessageVisual">
       <Properties>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Flash Buddy List"/>
       </Properties>
       <Events>
@@ -91,6 +93,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="statusSound">
       <Properties>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Play Sound"/>
       </Properties>
       <Events>
@@ -99,6 +102,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="statusVisual">
       <Properties>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Flash Buddy List"/>
       </Properties>
       <Events>

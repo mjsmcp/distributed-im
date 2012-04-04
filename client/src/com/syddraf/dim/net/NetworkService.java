@@ -86,6 +86,7 @@ public class NetworkService {
 						FutureDHT dht = peer.get(Number160.createHash(destination));
 						dht.awaitUninterruptibly();
 						System.out.println(destination);
+                                                if(dht.getData()!= null) {
 						// Extract the PeerAddress
 						String destinationEntryJson = new String(dht.getData().getData());
 						NetworkEntry destinationEntry = new Gson().fromJson(destinationEntryJson, NetworkEntry.class);
@@ -98,9 +99,12 @@ public class NetworkService {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+                                                }
 					}
 					try {
+                                            if(peerAddr != null) {
 						peer.send(peerAddr, msg.serialize());
+                                            }
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

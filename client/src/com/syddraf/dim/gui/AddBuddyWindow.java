@@ -99,7 +99,7 @@ public class AddBuddyWindow extends javax.swing.JFrame {
         }
         else
         {
-            ContactManager.getInstance().add(buddy, 0, false);
+            ContactManager.getInstance().add(buddy, 1, false);
             this.jLabel2.setText("Contact Added");
             jTextField1.setText("");
         }
