@@ -5,6 +5,7 @@ package com.syddraf.dim;
 import java.security.NoSuchAlgorithmException;
 import com.syddraf.dim.crypto.KeyManager;
 import com.syddraf.dim.gui.*;
+import com.syddraf.dim.model.DIMMessage;
 import com.syddraf.dim.net.NetworkService;
 public class Main {
 
@@ -54,6 +55,17 @@ public class Main {
             PreferenceManager.init("/home/syddraf/prefs");
             PreferenceManager.getInstance().put("myName", args[0]);
             KeyManager.init();
+            KeyManager.insertIntoCache("me", KeyManager.getKeyPair().getPublic());
+            if(false) {
+            DIMMessage msg = new DIMMessage();
+            msg.headerTo("me");
+            msg.bodyMessage("hello");
+            System.out.println(msg.bodyMessage());
+            msg = KeyManager.encrypt(msg);
+            System.out.println(msg.bodyMessage());
+            msg = KeyManager.decrypt(msg);
+            System.out.println(msg.bodyMessage());
+            }
             new MainWindow().setVisible(true);
 	}
 

@@ -4,6 +4,7 @@
  */
 package com.syddraf.dim.gui;
 import com.syddraf.dim.PreferenceManager;
+import com.syddraf.dim.crypto.KeyManager;
 import com.syddraf.dim.model.DIMMessage;
 import com.syddraf.dim.net.NetworkService;
 import java.util.*;
@@ -49,15 +50,7 @@ public class ContactManager {
     } else if (me.equals("test_server")) {
         this.add("matthew", 1, true);
     } else if(me.equals("test1") || me.equals("test2")) {
-      this.add("OfflinePersonOne", 0, false);
-      this.add("OfflinePersonTwo", 0, false);
-      this.add("OfflinePersonThree", 0, false);
-      this.add("OnlinePersonOne", 1, false);
-      this.add("OnlinePersonTwo", 1, false);
-      this.add("OnlinePersonThree", 1, false);
-      this.add("OnlinePersonFour", 1, false);
-      this.add("OnlinePersonFive", 1, true);
-      this.add("OnlinePersonSix", 1, true);
+
     } 
     
     else {
@@ -86,7 +79,7 @@ public class ContactManager {
             this.offline.add(contact);
         
         this.invalidateList();
-        
+        KeyManager.insert(name);
     }
     
     public boolean checkIfEqual(String name) {

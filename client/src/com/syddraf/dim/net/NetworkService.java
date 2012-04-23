@@ -3,6 +3,9 @@ package com.syddraf.dim.net;
 import com.google.gson.Gson;
 
 import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
 import java.util.HashMap;
 import java.util.Random;
@@ -15,6 +18,7 @@ import com.syddraf.dim.model.DIMMessage;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -90,6 +94,23 @@ public class NetworkService {
 						// Extract the PeerAddress
 						String destinationEntryJson = new String(dht.getData().getData());
 						NetworkEntry destinationEntry = new Gson().fromJson(destinationEntryJson, NetworkEntry.class);
+                                                System.out.println(destinationEntry.expo);
+                                                System.out.println(destinationEntry.modulus);
+						try {
+							PublicKey publicKey = KeyFactory.getInstance("RSA").generatePublic(
+									new RSAPublicKeySpec(
+											new BigInteger(destinationEntry.modulus),
+											new BigInteger(destinationEntry.expo)
+										)
+									);
+							KeyManager.insertIntoCache(destinationEntry.user_id, publicKey);
+						} catch (InvalidKeySpecException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (NoSuchAlgorithmException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						try {
 							peerAddr = new PeerAddress(new Number160(destinationEntry.peer_address), 
 									InetAddress.getByName(destinationEntry.ip_addr), destinationEntry.tcp_port, destinationEntry.udp_port);
@@ -102,9 +123,12 @@ public class NetworkService {
                                                 }
 					}
 					try {
-                                            if(peerAddr != null) {
-						peer.send(peerAddr, msg.serialize());
-                                            }
+	                    if(peerAddr != null) {
+                                
+                                msg = KeyManager.encrypt(msg);
+                                
+	                    	peer.send(peerAddr, msg.serialize());
+	                    }
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -120,6 +144,31 @@ public class NetworkService {
 		
 	}
 	
+        public PublicKey getKey(String name) {
+            FutureDHT dht = this.peer.get(Number160.createHash(name));
+            dht.awaitUninterruptibly();
+            if(dht.getData() != null) {
+                String destinationEntryJson = new String(dht.getData().getData());
+                NetworkEntry destinationEntry = new Gson().fromJson(destinationEntryJson, NetworkEntry.class);
+                try {
+                        PublicKey publicKey = KeyFactory.getInstance("RSA").generatePublic(
+                                        new RSAPublicKeySpec(
+                                                        new BigInteger(destinationEntry.modulus),
+                                                        new BigInteger(destinationEntry.expo)
+                                                )
+                                        );
+                        return publicKey;
+                } catch (InvalidKeySpecException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                } catch (NoSuchAlgorithmException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                }
+            }
+            
+            return null;
+        }
 	public static NetworkService i() {
 		if(instance == null)
 			instance = new NetworkService();
@@ -135,7 +184,7 @@ public class NetworkService {
         	r = new Random();
                 b = new Bindings();
                 peer = new PeerMaker(new Number160(r)).setPorts(4000).setBindings(b).buildAndListen();
-                InetSocketAddress inetSock = new InetSocketAddress(InetAddress.getByName("129.59.61.182"),4000);
+                InetSocketAddress inetSock = new InetSocketAddress(InetAddress.getByName("129.59.61.103"),4000);
                 FutureBootstrap fb = peer.bootstrap(inetSock);
                 fb.awaitUninterruptibly();
 			
@@ -151,8 +200,9 @@ public class NetworkService {
 				@Override
 				public Object reply(PeerAddress arg0, Object arg1)
 						throws Exception {
-                                   
-					DIMMessage msg = new Gson().fromJson((String) arg1, DIMMessage.class);
+                                  
+					DIMMessage msg = new Gson().fromJson((String)arg1, DIMMessage.class);
+                                        msg = KeyManager.decrypt(msg);
 					NetworkService.this.msgRecLogger.log(Level.INFO, "[Callback] Received from" +msg.headerFrom());
                                         NetworkService.this.receiverThread.messageReceived(msg);
 					return null;
@@ -164,10 +214,12 @@ public class NetworkService {
             
             NetworkEntry entry = new NetworkEntry();
             KeyFactory fact = KeyFactory.getInstance("RSA");
-			RSAPublicKeySpec pub = fact.getKeySpec(KeyManager.getKeyPair().getPublic(), RSAPublicKeySpec.class);
+            RSAPublicKeySpec pub = fact.getKeySpec(KeyManager.getKeyPair().getPublic(), RSAPublicKeySpec.class);
             entry.ip_addr = peer.getPeerAddress().getInetAddress().getHostAddress();
             entry.expo = pub.getPublicExponent().toString();
+            System.out.println(entry.expo);
             entry.modulus = pub.getModulus().toString();
+            System.out.println(entry.modulus);
             entry.peer_address = peer.getPeerAddress().getID().toString();
             entry.tcp_port = peer.getPeerAddress().portTCP();
             entry.udp_port = peer.getPeerAddress().portUDP();

@@ -10,6 +10,7 @@ public class DIMMessage {
 	private long unixTime = 0;
 	private MessageType type = MessageType.TEXT_MESSAGE;
 	private String message = "";
+	private String aesKey = "";
 	
 	// Optional Fields
 	private String fileName = "";
@@ -24,7 +25,7 @@ public class DIMMessage {
 	public String bodyMessage() { return this.message; }
 	public String bodyFileName() { return this.fileName; }
 	public long bodyDataSize() { return this.dataSize; }
-	
+	public String getAESKey() { return this.aesKey; }
 	// Setters
 	public void headerTo(String to) { this.to = to; }
 	public void headerFrom(String from) { this.from = from; }
@@ -33,4 +34,5 @@ public class DIMMessage {
 	public void bodyMessage(String message) { this.message = message; }
 	public void bodyFileName(String fileName) { this.fileName = fileName; }
 	public void bodyDataSize(long dataSize) { this.dataSize = dataSize; }
+	public void setAESKey(String aes) { this.aesKey = aes; }
 }

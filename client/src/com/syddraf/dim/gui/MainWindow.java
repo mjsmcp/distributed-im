@@ -26,7 +26,8 @@ public class MainWindow extends javax.swing.JFrame implements NetworkMessageList
     }
     
     public void refresh() {
-        this.jTextPane1.setText(((DIMContact)jList1.getSelectedValue()).getHistory());
+        if(jList1.getSelectedValue() != null) 
+            this.jTextPane1.setText(((DIMContact)jList1.getSelectedValue()).getHistory());
     }
 
     /**
