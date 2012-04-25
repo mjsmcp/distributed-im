@@ -1,0 +1,149 @@
+Initializing NetworkService
+84 [main] INFO net.tomp2p.connection.ConnectionHandler - Status of interface search: Discover status:  ++wlan0( /fe80:0:0:0:21f:3cff:fea1:c0a1%3,/10.8.65.76), ++lo( /0:0:0:0:0:0:0:1%1,/127.0.0.1).
+87 [main] INFO net.tomp2p.connection.ConnectionHandler - Visible address to other peers: PeerAddr[/10.8.65.76,udp:4000,tcp:4000,ID:0xaa89e01b09797e3383bb0348c6bd342f775e641f]
+103 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening for broadcasts on port udp: 4000 and tcp:4000
+135 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on TCP socket: 0.0.0.0/0.0.0.0:4000
+152 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on UDP socket: 0.0.0.0/0.0.0.0:4000
+Network Initialized
+Apr 2, 2012 5:23:36 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405416127): NotificationWindow Opened
+
+Apr 2, 2012 5:23:36 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405416593): Contact Clicked
+
+1
+Apr 2, 2012 5:23:37 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405417063): Contact Clicked
+
+1
+Apr 2, 2012 5:23:43 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405423307): ImportExportSettingsWindow Opened
+
+Apr 2, 2012 5:23:52 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405432916): Import Open Dialog Opened
+
+0
+/home/syddraf/a.jpg
+Apr 2, 2012 5:24:22 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405462901): Import Button Pushed
+
+Apr 2, 2012 5:24:32 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405472321): AddBuddyWindow Opened
+
+Apr 2, 2012 5:24:38 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405478985): AddBuddyButton Clicked
+
+ActionPerformed
+Repainting
+Apr 2, 2012 5:24:51 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405491751): Pin/Unpin Clicked
+
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+	at com.syddraf.dim.gui.MainWindow.jMenuItem3MouseReleased(Unknown Source)
+	at com.syddraf.dim.gui.MainWindow.access$000(Unknown Source)
+	at com.syddraf.dim.gui.MainWindow$1.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:290)
+	at java.awt.Component.processMouseEvent(Component.java:6268)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6033)
+	at java.awt.Container.processEvent(Container.java:2045)
+	at java.awt.Component.dispatchEventImpl(Component.java:4629)
+	at java.awt.Container.dispatchEventImpl(Container.java:2103)
+	at java.awt.Component.dispatchEvent(Component.java:4455)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4633)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4297)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4227)
+	at java.awt.Container.dispatchEventImpl(Container.java:2089)
+	at java.awt.Window.dispatchEventImpl(Window.java:2517)
+	at java.awt.Component.dispatchEvent(Component.java:4455)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:649)
+	at java.awt.EventQueue.access$000(EventQueue.java:96)
+	at java.awt.EventQueue$1.run(EventQueue.java:608)
+	at java.awt.EventQueue$1.run(EventQueue.java:606)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:116)
+	at java.awt.EventQueue$2.run(EventQueue.java:622)
+	at java.awt.EventQueue$2.run(EventQueue.java:620)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:619)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:275)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:200)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:190)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:185)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:177)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:138)
+Apr 2, 2012 5:24:58 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405498530): Pin/Unpin Clicked
+
+Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
+	at com.syddraf.dim.gui.MainWindow.jMenuItem3MouseReleased(Unknown Source)
+	at com.syddraf.dim.gui.MainWindow.access$000(Unknown Source)
+	at com.syddraf.dim.gui.MainWindow$1.mouseReleased(Unknown Source)
+	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:290)
+	at java.awt.Component.processMouseEvent(Component.java:6268)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3267)
+	at java.awt.Component.processEvent(Component.java:6033)
+	at java.awt.Container.processEvent(Container.java:2045)
+	at java.awt.Component.dispatchEventImpl(Component.java:4629)
+	at java.awt.Container.dispatchEventImpl(Container.java:2103)
+	at java.awt.Component.dispatchEvent(Component.java:4455)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4633)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4297)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4227)
+	at java.awt.Container.dispatchEventImpl(Container.java:2089)
+	at java.awt.Window.dispatchEventImpl(Window.java:2517)
+	at java.awt.Component.dispatchEvent(Component.java:4455)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:649)
+	at java.awt.EventQueue.access$000(EventQueue.java:96)
+	at java.awt.EventQueue$1.run(EventQueue.java:608)
+	at java.awt.EventQueue$1.run(EventQueue.java:606)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:116)
+	at java.awt.EventQueue$2.run(EventQueue.java:622)
+	at java.awt.EventQueue$2.run(EventQueue.java:620)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:105)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:619)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:275)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:200)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:190)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:185)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:177)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:138)
+Apr 2, 2012 5:25:07 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 2, 2012 5:25:07 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 2, 2012 5:25:07 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Exception in thread "Thread-4" java.lang.NullPointerException
+	at com.syddraf.dim.gui.MainWindow.refresh(Unknown Source)
+	at com.syddraf.dim.gui.DIMContact.receiveMessage(Unknown Source)
+	at com.syddraf.dim.gui.ContactManager.postMessage(Unknown Source)
+	at com.syddraf.dim.net.NetworkService$ReceiverThread.run(Unknown Source)
+Apr 2, 2012 5:25:10 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405510119): Contact Clicked
+
+1
+Apr 2, 2012 5:25:10 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405510392): Contact Clicked
+
+1
+Apr 2, 2012 5:25:27 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405527004): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+test1
+Apr 2, 2012 5:25:41 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405541424): NotificationWindow Opened
+
+Apr 2, 2012 5:25:44 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405544998): newMessageSoundActionPerformed Clicked
+
+Apr 2, 2012 5:25:45 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405545532): newMessageSoundActionPerformed Clicked
+

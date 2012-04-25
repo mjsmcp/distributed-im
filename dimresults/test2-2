@@ -1,0 +1,131 @@
+^Csyddraf@lastorder:~/dist$ java -jar DIM-all.jar test2
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Initializing NetworkService
+63 [main] INFO net.tomp2p.connection.ConnectionHandler - Status of interface search: Discover status:  ++wlan0( /fe80:0:0:0:21f:3cff:fea1:c0a1%3,/10.8.65.76), ++lo( /0:0:0:0:0:0:0:1%1,/127.0.0.1).
+67 [main] INFO net.tomp2p.connection.ConnectionHandler - Visible address to other peers: PeerAddr[/10.8.65.76,udp:4000,tcp:4000,ID:0x141e89a1bc4d5ae71e05f27bb4d99fb0f129b692]
+85 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening for broadcasts on port udp: 4000 and tcp:4000
+119 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on TCP socket: 0.0.0.0/0.0.0.0:4000
+136 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on UDP socket: 0.0.0.0/0.0.0.0:4000
+Network Initialized
+Apr 2, 2012 8:04:35 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415075439): ImportExportSettingsWindow Opened
+
+Apr 2, 2012 8:04:40 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415080151): Import Open Dialog Opened
+
+0
+/home/syddraf/prefs
+Apr 2, 2012 8:05:16 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415116982): AddBuddyWindow Opened
+
+Apr 2, 2012 8:05:22 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415122377): AddBuddyButton Clicked
+
+ActionPerformed
+Repainting
+Apr 2, 2012 8:05:35 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415135679): Pin/Unpin Clicked
+
+OnlinePersonFive is true
+Repainting
+Apr 2, 2012 8:05:43 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415143335): Pin/Unpin Clicked
+
+OnlinePersonSix is true
+Repainting
+Apr 2, 2012 8:05:48 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415148545): Contact Clicked
+
+1
+Apr 2, 2012 8:05:49 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415149528): Contact Clicked
+
+1
+Apr 2, 2012 8:05:49 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415149699): Contact Clicked
+
+1
+Apr 2, 2012 8:05:50 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415150972): Contact Clicked
+
+1
+Apr 2, 2012 8:05:51 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415151118): Contact Clicked
+
+1
+Apr 2, 2012 8:05:53 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415153199): Contact Clicked
+
+1
+Apr 2, 2012 8:05:53 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415153669): Contact Clicked
+
+1
+Apr 2, 2012 8:05:53 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415153849): Contact Clicked
+
+1
+Apr 2, 2012 8:05:54 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415154353): Contact Clicked
+
+1
+Apr 2, 2012 8:05:54 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415154532): Contact Clicked
+
+1
+Apr 2, 2012 8:05:59 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415159199): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+test1
+Apr 2, 2012 8:06:03 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 2, 2012 8:06:03 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 2, 2012 8:06:03 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 2, 2012 8:06:05 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415165345): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 2, 2012 8:06:06 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415166050): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 2, 2012 8:06:08 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 2, 2012 8:06:08 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 2, 2012 8:06:08 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 2, 2012 8:06:11 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415171200): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 2, 2012 8:06:27 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415187825): NotificationWindow Opened
+
+Apr 2, 2012 8:06:30 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415190220): newMessageSoundActionPerformed Clicked
+
+Apr 2, 2012 8:06:30 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415190937): newMessageVisualActionPerformed Clicked
+
+Apr 2, 2012 8:06:31 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415191653): statusSoundActionPerformed Clicked
+
+Apr 2, 2012 8:06:32 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415192287): statusVisualActionPerformed Clicked
+

@@ -1,0 +1,202 @@
+syddraf@lastorder:~/dist$ java -jar DIM-all.jar test2
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Initializing NetworkService
+65 [main] INFO net.tomp2p.connection.ConnectionHandler - Status of interface search: Discover status:  ++wlan0( /fe80:0:0:0:21f:3cff:fea1:c0a1%3,/10.8.65.227), ++lo( /0:0:0:0:0:0:0:1%1,/127.0.0.1).
+69 [main] INFO net.tomp2p.connection.ConnectionHandler - Visible address to other peers: PeerAddr[/10.8.65.227,udp:4000,tcp:4000,ID:0xceff738901f4566ee25b5b13b3e9e5fdbdb9d200]
+86 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening for broadcasts on port udp: 4000 and tcp:4000
+128 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on TCP socket: 0.0.0.0/0.0.0.0:4000
+147 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on UDP socket: 0.0.0.0/0.0.0.0:4000
+Network Initialized
+Apr 3, 2012 5:06:56 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490816432): ImportExportSettingsWindow Opened
+
+Apr 3, 2012 5:06:58 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490818348): Import Open Dialog Opened
+
+0
+/home/syddraf/prefs
+Apr 3, 2012 5:07:05 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490825689): Import Button Pushed
+
+Apr 3, 2012 5:07:13 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490833559): AddBuddyWindow Opened
+
+Apr 3, 2012 5:07:17 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490837409): AddBuddyEnter Pushed
+
+ActionPerformed
+Repainting
+Apr 3, 2012 5:07:25 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490845815): Contact Clicked
+
+1
+Apr 3, 2012 5:07:28 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490848065): Pin/Unpin Clicked
+
+test1 is false
+Repainting
+Apr 3, 2012 5:07:30 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490850522): Pin/Unpin Clicked
+
+test1 is true
+Repainting
+Apr 3, 2012 5:07:31 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490851637): Contact Clicked
+
+1
+Apr 3, 2012 5:07:32 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490852027): Contact Clicked
+
+1
+Apr 3, 2012 5:07:33 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490853498): Pin/Unpin Clicked
+
+test1 is false
+Repainting
+Apr 3, 2012 5:07:34 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490854344): Contact Clicked
+
+1
+Apr 3, 2012 5:07:36 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490856377): Pin/Unpin Clicked
+
+test1 is true
+Repainting
+Apr 3, 2012 5:07:42 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490862181): Pin/Unpin Clicked
+
+test1 is false
+Repainting
+Apr 3, 2012 5:07:47 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490867442): Contact Clicked
+
+1
+Apr 3, 2012 5:07:49 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:07:49 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:07:49 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:07:56 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:07:56 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:07:56 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:07:59 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490879543): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+521708 [Netty thread (non-blocking)/ pool-6-thread-3] WARN net.tomp2p.connection.SenderNetty - Failed to connect channel:Message:id=1978085693,c=GET,t=REQUEST_1,l=56,s=PeerAddr[/10.8.65.227,udp:4000,tcp:4000,ID:0xceff738901f4566ee25b5b13b3e9e5fdbdb9d200],r=PeerAddr[/10.8.64.104,udp:4000,tcp:4000,ID:0x9aba8d8ebbd211a0ebcd63fee64cb737a9bc94c1]
+521708 [Netty thread (non-blocking)/ pool-6-thread-3] WARN net.tomp2p.connection.SenderNetty - Failed to connect channel:Message:id=1917333180,c=GET,t=REQUEST_1,l=56,s=PeerAddr[/10.8.65.227,udp:4000,tcp:4000,ID:0xceff738901f4566ee25b5b13b3e9e5fdbdb9d200],r=PeerAddr[/129.59.61.182,udp:4000,tcp:4000,ID:0x2056bee1d4e6e9fa8e569d308bbac0392a689d16]
+test1
+Apr 3, 2012 5:08:05 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:08:05 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:08:05 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:08:07 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:08:07 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:08:07 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:08:12 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:08:12 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:08:12 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:08:13 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490893325): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:08:21 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:08:21 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:08:21 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:08:21 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490901972): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:08:29 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490909133): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:08:43 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490923958): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:08:53 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490933685): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:09:00 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:09:00 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:09:00 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:09:08 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490948756): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:09:11 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490951502): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:09:11 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:09:11 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:09:11 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:09:15 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490955770): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:09:16 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 3, 2012 5:09:16 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 3, 2012 5:09:16 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Apr 3, 2012 5:09:27 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490967118): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:09:34 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490974882): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+Apr 3, 2012 5:09:50 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490990474): NotificationWindow Opened
+
+Apr 3, 2012 5:09:52 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490992382): newMessageSoundActionPerformed Clicked
+
+Apr 3, 2012 5:09:52 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333490992786): newMessageSoundActionPerformed Clicked
+

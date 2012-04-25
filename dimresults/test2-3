@@ -1,0 +1,100 @@
+syddraf@lastorder:~/dist$ java -jar DIM-all.jar test2
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Repainting
+Initializing NetworkService
+82 [main] INFO net.tomp2p.connection.ConnectionHandler - Status of interface search: Discover status:  ++wlan0( /fe80:0:0:0:21f:3cff:fea1:c0a1%3,/10.8.65.76), ++lo( /0:0:0:0:0:0:0:1%1,/127.0.0.1).
+86 [main] INFO net.tomp2p.connection.ConnectionHandler - Visible address to other peers: PeerAddr[/10.8.65.76,udp:4000,tcp:4000,ID:0xf410487318d1fbcf1c1cacbafe563a68a8fc0f4a]
+106 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening for broadcasts on port udp: 4000 and tcp:4000
+161 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on TCP socket: 0.0.0.0/0.0.0.0:4000
+183 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on UDP socket: 0.0.0.0/0.0.0.0:4000
+Network Initialized
+Apr 2, 2012 8:17:35 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415855029): ImportExportSettingsWindow Opened
+
+Apr 2, 2012 8:17:54 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415874660): Import Open Dialog Opened
+
+Apr 2, 2012 8:17:57 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest1
+Apr 2, 2012 8:17:57 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest1
+Apr 2, 2012 8:17:57 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest1
+Repainting
+0
+/home/syddraf/prefs
+Apr 2, 2012 8:18:13 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415893478): Import Button Pushed
+
+Apr 2, 2012 8:18:24 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415904595): AddBuddyWindow Opened
+
+Apr 2, 2012 8:18:32 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415912511): AddBuddyButton Clicked
+
+ActionPerformed
+Apr 2, 2012 8:18:42 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415922495): Contact Clicked
+
+1
+Apr 2, 2012 8:18:46 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415926533): Pin/Unpin Clicked
+
+test1 is false
+Repainting
+Apr 2, 2012 8:18:49 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415929669): Contact Clicked
+
+1
+Apr 2, 2012 8:18:51 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415931528): Pin/Unpin Clicked
+
+test1 is true
+Repainting
+Apr 2, 2012 8:18:54 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415934872): Contact Clicked
+
+1
+Apr 2, 2012 8:18:58 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415938086): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+test1
+Apr 2, 2012 8:19:12 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415952024): Contact Clicked
+
+1
+Apr 2, 2012 8:19:13 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415953508): Contact Clicked
+
+1
+Apr 2, 2012 8:19:15 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415955157): Contact Clicked
+
+1
+Apr 2, 2012 8:19:24 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333415964277): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+595553 [Netty thread (non-blocking)/ pool-5-thread-2] WARN net.tomp2p.futures.BaseFutureImpl - set failed reason: ChannelFuture failed
+595553 [Netty thread (non-blocking)/ pool-5-thread-2] WARN net.tomp2p.connection.SenderNetty - Failed to connect channel:Message:id=-501810572,c=DIRECT_DATA,t=REQUEST_2,l=56,s=PeerAddr[/10.8.65.76,udp:4000,tcp:4000,ID:0xf410487318d1fbcf1c1cacbafe563a68a8fc0f4a],r=PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x69fc0cedf1dc04d4a00e7f7918449715bfb8169f]
+595554 [Netty thread (non-blocking)/ pool-5-thread-2] WARN net.tomp2p.rpc.RequestHandlerTCP - Got exception, but ignored (future response completed): BaseFuture Status=(isComplete:true, reason:Channel closed event, type:FAILED)
+Apr 2, 2012 8:20:03 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333416003866): Contact Clicked
+
+3
+Apr 2, 2012 8:20:08 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333416008056): NotificationWindow Opened
+
+Apr 2, 2012 8:20:17 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333416017661): MainWindow Closed
+

@@ -1,0 +1,111 @@
+syddraf@shana:~/distributed-im/client/dist$ java -jar DIM-all.jar test1
+Initializing NetworkService
+58 [main] INFO net.tomp2p.connection.ConnectionHandler - Status of interface search: Discover status:  ++wlan0( /fe80:0:0:0:4eeb:42ff:fe48:e31f%3,/10.8.64.163), ++lo( /0:0:0:0:0:0:0:1%1,/127.0.0.1).
+61 [main] INFO net.tomp2p.connection.ConnectionHandler - Visible address to other peers: PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x5f5566e40d9c75156bf78c4d954eb889066da3ff]
+72 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening for broadcasts on port udp: 4000 and tcp:4000
+94 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on TCP socket: 0.0.0.0/0.0.0.0:4000
+104 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on UDP socket: 0.0.0.0/0.0.0.0:4000
+165 [Netty thread (non-blocking)/ pool-2-thread-1] WARN net.tomp2p.connection.DispatcherReply - No handler found for Message:id=1784976397,c=NEIGHBORS,t=REQUEST_1,l=56,s=PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x5f5566e40d9c75156bf78c4d954eb889066da3ff],r=PeerAddr[/0:0:0:0:0:0:0:0,udp:4000,tcp:4000,ID:0x9ca8c1d7fda7260bcc5c13c8154a164cd03eb99]. Probably we have shutdown this peer.
+167 [Netty thread (non-blocking)/ pool-2-thread-5] WARN net.tomp2p.rpc.RequestHandlerUDP - removed from map, cause: PeerException (PEER_ABORT): Message was not delivered successfully: Message:id=1784976397,c=NEIGHBORS,t=REQUEST_1,l=96,s=PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x5f5566e40d9c75156bf78c4d954eb889066da3ff],r=PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x9ca8c1d7fda7260bcc5c13c8154a164cd03eb99] msg: Message:id=1784976397,c=NEIGHBORS,t=REQUEST_1,l=96,s=PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x5f5566e40d9c75156bf78c4d954eb889066da3ff],r=PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x9ca8c1d7fda7260bcc5c13c8154a164cd03eb99]
+^Csyddraf@shana:~/distributed-im/client/dist$ java -jar DIM-all.jar test1
+Initializing NetworkService
+42 [main] INFO net.tomp2p.connection.ConnectionHandler - Status of interface search: Discover status:  ++wlan0( /fe80:0:0:0:4eeb:42ff:fe48:e31f%3,/10.8.64.163), ++lo( /0:0:0:0:0:0:0:1%1,/127.0.0.1).
+44 [main] INFO net.tomp2p.connection.ConnectionHandler - Visible address to other peers: PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x7d322c23be1a8f1ef1cc0ecbbac6e8d1cd802d05]
+55 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening for broadcasts on port udp: 4000 and tcp:4000
+76 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on TCP socket: 0.0.0.0/0.0.0.0:4000
+87 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on UDP socket: 0.0.0.0/0.0.0.0:4000
+Network Initialized
+35155 [Netty thread (non-blocking)/ pool-1-thread-1] WARN net.tomp2p.rpc.RequestHandlerUDP - removed from map, cause: PeerException (TIMEOUT): Timeout exception for peer PeerAddr[/10.8.65.76,udp:4000,tcp:4000,ID:0xf6c393b80f4d09abf07666e5abe0cf120d38bf4d] msg: Message:id=-79068388,c=PING,t=REQUEST_1,l=56,s=PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x7d322c23be1a8f1ef1cc0ecbbac6e8d1cd802d05],r=PeerAddr[/10.8.65.76,udp:4000,tcp:4000,ID:0xf6c393b80f4d09abf07666e5abe0cf120d38bf4d]
+syddraf@shana:~/distributed-im/client/dist$ java -jar DIM-all.jar test1
+Initializing NetworkService
+56 [main] INFO net.tomp2p.connection.ConnectionHandler - Status of interface search: Discover status:  ++wlan0( /fe80:0:0:0:4eeb:42ff:fe48:e31f%3,/10.8.64.163), ++lo( /0:0:0:0:0:0:0:1%1,/127.0.0.1).
+58 [main] INFO net.tomp2p.connection.ConnectionHandler - Visible address to other peers: PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0xd40e313f8b4f030962e1f719f9aa487f35254d3d]
+74 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening for broadcasts on port udp: 4000 and tcp:4000
+104 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on TCP socket: 0.0.0.0/0.0.0.0:4000
+120 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on UDP socket: 0.0.0.0/0.0.0.0:4000
+Network Initialized
+Apr 2, 2012 5:14:18 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333404858486): AddBuddyWindow Opened
+
+Apr 2, 2012 5:14:21 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333404861408): AddBuddyButton Clicked
+
+ActionPerformed
+Repainting
+Apr 2, 2012 5:14:24 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333404864230): Contact Clicked
+
+1
+Apr 2, 2012 5:14:26 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333404866614): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+test2
+syddraf@shana:~/distributed-im/client/dist$ java -jar DIM-all.jar test1
+Initializing NetworkService
+42 [main] INFO net.tomp2p.connection.ConnectionHandler - Status of interface search: Discover status:  ++wlan0( /fe80:0:0:0:4eeb:42ff:fe48:e31f%3,/10.8.64.163), ++lo( /0:0:0:0:0:0:0:1%1,/127.0.0.1).
+45 [main] INFO net.tomp2p.connection.ConnectionHandler - Visible address to other peers: PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x16b537249ee2c4c62190fe06454b1312689e9bac]
+55 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening for broadcasts on port udp: 4000 and tcp:4000
+77 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on TCP socket: 0.0.0.0/0.0.0.0:4000
+87 [main] INFO net.tomp2p.connection.ConnectionHandler - Listening on UDP socket: 0.0.0.0/0.0.0.0:4000
+Network Initialized
+Apr 2, 2012 5:23:19 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405399757): ImportExportSettingsWindow Opened
+
+Apr 2, 2012 5:23:28 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405408058): Import Open Dialog Opened
+
+0
+/home/syddraf/distributed-im/README
+Apr 2, 2012 5:23:46 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405426014): Import Button Pushed
+
+Apr 2, 2012 5:23:54 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405434461): AddBuddyWindow Opened
+
+Apr 2, 2012 5:23:59 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405439760): AddBuddyButton Clicked
+
+ActionPerformed
+Repainting
+Apr 2, 2012 5:24:06 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405446468): Contact Clicked
+
+1
+Apr 2, 2012 5:24:09 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405449665): Pin/Unpin Clicked
+
+test2 is false
+Repainting
+Apr 2, 2012 5:24:13 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405453743): Pin/Unpin Clicked
+
+test2 is true
+Repainting
+Apr 2, 2012 5:24:14 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405454501): Contact Clicked
+
+1
+Apr 2, 2012 5:25:07 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405507122): Message Send
+
+Sent
+TRACE: jTextField1KeyReleased
+625928 [Netty thread (non-blocking)/ pool-6-thread-3] WARN net.tomp2p.connection.SenderNetty - Failed to connect channel:Message:id=-969146821,c=GET,t=REQUEST_1,l=56,s=PeerAddr[/10.8.64.163,udp:4000,tcp:4000,ID:0x16b537249ee2c4c62190fe06454b1312689e9bac],r=PeerAddr[/10.8.65.76,udp:4000,tcp:4000,ID:0xaa89e01b09797e3383bb0348c6bd342f775e641f]
+test2
+Apr 2, 2012 5:25:26 PM com.syddraf.dim.net.NetworkService$1 reply
+INFO: [Callback] Received fromtest2
+Apr 2, 2012 5:25:26 PM com.syddraf.dim.net.NetworkService$ReceiverThread run
+INFO: [ReceiverThread] Received fromtest2
+Apr 2, 2012 5:25:26 PM com.syddraf.dim.gui.ContactManager postMessage
+INFO: [ContactManager] Received fromtest2
+Apr 2, 2012 5:25:31 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405531299): NotificationWindow Opened
+
+Apr 2, 2012 5:25:35 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405535716): statusSoundActionPerformed Clicked
+
+Apr 2, 2012 5:25:37 PM com.syddraf.dim.gui.MyLogger logClick
+SEVERE: (1333405537766): newMessageSoundActionPerformed Clicked
+
